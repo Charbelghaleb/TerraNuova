@@ -127,32 +127,98 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
     setSubmitError('');
 
     try {
+      // Prepare comprehensive data payload for Make.com
+      const submissionData = {
+        // Primary Contact Information
+        fullName: formData.fullName.trim(),
+        email: formData.email.trim().toLowerCase(),
+        phone: formData.phone.trim(),
+        
+        // Project Details
+        serviceInterest: formData.serviceInterest,
+        projectDescription: formData.projectDescription.trim(),
+        propertyAddress: formData.propertyAddress.trim(),
+        
+        // Submission Metadata
+        submittedAt: new Date().toISOString(),
+        submissionDate: new Date().toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }),
+        submissionTime: new Date().toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        }),
+        
+        // Source and Lead Information
+        source: 'Terra Nuova Website',
+        leadType: 'Free Estimate Request',
+        formType: 'Contact Form',
+        
+        // Browser and Device Information
+        userAgent: navigator.userAgent,
+        referrer: document.referrer || 'Direct',
+        currentUrl: window.location.href,
+        
+        // Additional Context
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        language: navigator.language,
+        
+        // Form Validation Status
+        formValidated: true,
+        recaptchaVerified: recaptchaVerified,
+        
+        // Contact Preferences (can be expanded)
+        preferredContactMethod: 'Phone', // Default, can be made selectable
+        urgency: 'Standard', // Default, can be made selectable
+        
+        // Lead Score Factors
+        hasCompleteInfo: !!(formData.fullName && formData.email && formData.phone && formData.propertyAddress),
+        hasDetailedDescription: formData.projectDescription.length > 50,
+        hasSpecificService: formData.serviceInterest !== 'Not Sure - Need Consultation'
+      };
+
+      console.log('Submitting form data to Make.com:', submissionData);
+
       // Submit to Make.com webhook
       const response = await fetch('https://hook.us2.make.com/5mly6kt37xfjw23rc2lsed1vp6qylusv', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          serviceInterest: formData.serviceInterest,
-          projectDescription: formData.projectDescription,
-          propertyAddress: formData.propertyAddress,
-          submittedAt: new Date().toISOString(),
-          source: 'Terra Nuova Website'
-        })
+        body: JSON.stringify(submissionData)
       });
 
       if (response.ok) {
+        console.log('Form submitted successfully to Make.com');
         setIsSubmitted(true);
+        
+        // Optional: Log successful submission for analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', {
+            event_category: 'engagement',
+            event_label: 'free_estimate_request'
+          });
+        }
       } else {
-        throw new Error('Failed to submit form');
+        const errorText = await response.text();
+        console.error('Make.com webhook error:', response.status, errorText);
+        throw new Error(`Server responded with status ${response.status}`);
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitError('There was an error submitting your form. Please try again or call us directly at (718) 200-4133.');
+      
+      // Optional: Log error for analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_error', {
+          event_category: 'error',
+          event_label: 'submission_failed'
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -179,6 +245,23 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
           <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
             Your request has been submitted successfully. Our team will contact you within 24 hours to discuss your project and schedule a free estimate.
           </p>
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-6 md:mb-8 border border-gray-100">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">What happens next?</h3>
+            <ul className="text-left space-y-2 text-gray-700">
+              <li className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-[#0066CC] rounded-full mt-2 flex-shrink-0"></div>
+                <span>We'll review your project details and service requirements</span>
+              </li>
+              <li className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-[#0066CC] rounded-full mt-2 flex-shrink-0"></div>
+                <span>A team member will call you to discuss your needs and answer questions</span>
+              </li>
+              <li className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-[#0066CC] rounded-full mt-2 flex-shrink-0"></div>
+                <span>We'll schedule a convenient time for your free on-site estimate</span>
+              </li>
+            </ul>
+          </div>
           <button
             onClick={onBack}
             className="bg-gradient-to-r from-[#0066CC] to-purple-600 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px]"
