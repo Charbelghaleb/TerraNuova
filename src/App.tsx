@@ -123,9 +123,9 @@ function App() {
       desc: "Built with three layers for lasting strength, our chip system is a popular option for garage floors, schools, locker rooms, and commercial showrooms. This system is made of 99.5% polyurea solids to give it superior durability, including chemical, abrasion, and UV resistance. Best of all, its vinyl chips can be custom-blended into nearly any color you'd like!", 
       gradient: "from-[#0066CC] to-blue-400",
       images: [
-        "Chip concrete coating /5c26590e-99de-413d-bbf2-5c24ad82e6ae-960w.jpg",
-        "Chip concrete coating /diy-double-broadcast-chip-floor-garage-epoxy-flooring-4__64801.jpg",
-        "Chip concrete coating /flake-epoxy-garages-elevate-your-flooring-business-887298.webp"
+        "/images/chip-system/example-1.jpg",
+        "/images/chip-system/example-2.jpg",
+        "/images/chip-system/example-3.webp"
       ],
       benefits: [
         "Superior durability and longevity",
@@ -144,9 +144,9 @@ function App() {
       desc: "Our quartz system is similar to the chip system but has two additional layers (five in total) for added strength. Utilizing both a basecoat and topcoat of polyaspartic floor coating, our system has extreme adhesion, flexibility in changing temperatures, and chemical resistance.", 
       gradient: "from-slate-600 to-slate-400",
       images: [
-        "Quartz System /6e922593-bb7f-4bdc-8f41-d1c41d0a2c91.png",
-        "Quartz System /6db415a0-4047-4f79-b397-cc552d3164c0.png",
-        "Quartz System /56533304-2a9c-479c-aaca-5cf719fb2ebe.png"
+        "/images/quartz-system/example-1.png",
+        "/images/quartz-system/example-2.png",
+        "/images/quartz-system/example-3.png"
       ],
       benefits: [
         "Maximum durability for harsh environments",
@@ -165,9 +165,9 @@ function App() {
       desc: `Our floor finishing system utilizes natural pigments to create a 3D marbleized look with a bold pop of color. The eye-catching color movement and high gloss make this flooring system particularly popular for showrooms—or any space requiring that "wow" factor. And if you prefer a subtler appearance, we can swap the glossy topcoat with a high-quality matte one.`, 
       gradient: "from-red-600 to-red-500",
       images: [
-        "Mettalic Sysytem/e9ee3dc4-f156-4136-a556-1a8fd86e4879.png",
-        "Mettalic Sysytem/a8fdc318-1219-497c-be0a-2ae1ce8acffd.png",
-        "Mettalic Sysytem/7c4e15c8-05a2-4351-a72b-dcb6db58641e.png"
+        "/images/metallic-system/example-1.png",
+        "/images/metallic-system/example-2.png",
+        "/images/metallic-system/example-3.png"
       ],
       benefits: [
         "Unique 3D marbleized appearance",
@@ -186,9 +186,9 @@ function App() {
       desc: "Our solid color polyurea system withstands freeze-thaw cycles without cracking or splitting. It also has UV and chemical resistance.", 
       gradient: "from-green-600 to-emerald-500",
       images: [
-        "Solid color polyurea system/adc08fed-e7ec-48d3-84c7-59483b433f40.png",
-        "Solid color polyurea system/86bdf23e-4608-47d3-bf0a-808cefbe2e71.png",
-        "Solid color polyurea system/0cfaf0b4-0d53-4b70-bce4-4e0b53cd5440.png"
+        "/images/solid-color-polyurea/example-1.png",
+        "/images/solid-color-polyurea/example-2.png",
+        "/images/solid-color-polyurea/example-3.png"
       ],
       benefits: [
         "Extreme temperature resistance",
@@ -207,9 +207,9 @@ function App() {
       desc: "Like the rest of our concrete coatings, our solid color epoxy system has been specially engineered by experienced floor specialists. It fixes the problems common to low-quality epoxies—providing superior impact resistance and dependability at an affordable price.", 
       gradient: "from-[#0066CC] to-cyan-500",
       images: [
-        "Solid color epoxy /fe3e0513-0901-4a49-9b4a-ba402b964db4.png",
-        "Solid color epoxy /ead33166-8c26-4811-bdf1-d546035aef34.png",
-        "Solid color epoxy /7e81ac4e-b072-4a71-bda0-f7e47cce6dc3.png"
+        "/images/solid-color-epoxy/example-1.png",
+        "/images/solid-color-epoxy/example-2.png",
+        "/images/solid-color-epoxy/example-3.png"
       ],
       benefits: [
         "Cost-effective solution",
@@ -228,9 +228,9 @@ function App() {
       desc: "The polyurea shop floor system offers added strength and durability. It also features a textured surface and moisture resistance, making it perfect for the harsh conditions of any workshop or factory.", 
       gradient: "from-indigo-600 to-blue-500",
       images: [
-        "Polyurea Shop Floor System/3cd51f64-f1d6-4b48-8899-5706877978e4.png",
-        "Polyurea Shop Floor System/488a60cf-000d-4e50-b7cd-430e4519c006.png",
-        "Polyurea Shop Floor System/ec9dcc76-0f56-4a4f-9709-dfe85c82130f.png"
+        "/images/polyurea-shop-floor/example-1.png",
+        "/images/polyurea-shop-floor/example-2.png",
+        "/images/polyurea-shop-floor/example-3.png"
       ],
       benefits: [
         "Extreme impact and abrasion resistance",
@@ -249,9 +249,9 @@ function App() {
       desc: "Protect the vulnerable spot between your floors and walls with a Formcove system. Our unique cove base system takes one-third of the time of a standard installation and uses only half of the materials—saving you time and money.", 
       gradient: "from-orange-600 to-red-500",
       images: [
-        "formcove system/029a9987-698a-4b44-9555-ed936ea5b88f.png",
-        "formcove system/1411cd3c-26ec-499b-820b-f8e23de71f33.png",
-        "formcove system/278a891e-1f57-42ff-a19e-b26c53a5fb9a.png"
+        "/images/formcove-system/example-1.png",
+        "/images/formcove-system/example-2.png",
+        "/images/formcove-system/example-3.png"
       ],
       benefits: [
         "Seamless floor-to-wall transition",
@@ -279,7 +279,7 @@ function App() {
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
             <img 
-              src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+              src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
@@ -314,18 +314,18 @@ function App() {
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-lg">
                   <img 
                     src={service.id === 'chip-system' 
-                      ? "Chip concrete coating /Screen Shot 2025-06-11 at 4.06.52 PM.png"
+                      ? "/images/chip-system/process-diagram.png"
                       : service.id === 'quartz-system'
-                      ? "Quartz System /Screen_Shot_2025-06-12_at_10.59.32_AM.png"
+                      ? "/images/quartz-system/process-diagram.png"
                       : service.id === 'metallic-system'
-                      ? "Mettalic Sysytem/Screen_Shot_2025-06-12_at_11.09.22_AM.png"
+                      ? "/images/metallic-system/process-diagram.png"
                       : service.id === 'polyurea-shop-floor-system'
-                      ? "Polyurea Shop Floor System/187b9dcc-0fba-494b-89a2-21d158cb7f94.png"
+                      ? "/images/polyurea-shop-floor/process-diagram.png"
                       : service.id === 'solid-color-polyurea'
-                      ? "Solid color polyurea system/b46273d4-82ac-4b70-ab1d-760750b31da3.png"
+                      ? "/images/solid-color-polyurea/process-diagram.png"
                       : service.id === 'solid-color-epoxy'
-                      ? "Solid color epoxy /Screen_Shot_2025-06-12_at_12.18.28_PM.png"
-                      : "formcove system/9b0097ef-e252-47e9-a6f1-56f818ee4bdb.png"
+                      ? "/images/solid-color-epoxy/process-diagram.png"
+                      : "/images/formcove-system/process-diagram.png"
                     }
                     alt={`${service.title} Process Diagram`}
                     className="w-full h-auto object-cover"
@@ -440,7 +440,7 @@ function App() {
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
             <img 
-              src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+              src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
@@ -693,7 +693,7 @@ function App() {
               {/* Animated Logo */}
               <div className="animate-scroll-bounce">
                 <img 
-                  src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+                  src="/images/logo/terra-nuova-logo.png" 
                   alt="TERRA NUOVA Logo - Scroll Down"
                   className="w-20 h-20 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                 />
@@ -749,7 +749,7 @@ function App() {
             >
               <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-8 border border-red-200">
                 <img 
-                  src="Before after /IMG_8533_2.jpg" 
+                  src="/images/before-after/cracked-floor.jpg" 
                   alt="Cracked concrete floor"
                   className="w-full h-80 object-cover"
                 />
@@ -783,7 +783,7 @@ function App() {
             >
               <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-8 border border-blue-200">
                 <img 
-                  src="Before after /IMG_8587 (1).jpg" 
+                  src="/images/before-after/finished-floor.jpg" 
                   alt="Beautiful epoxy floor"
                   className="w-full h-80 object-cover"
                 />
@@ -831,9 +831,9 @@ function App() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             {[
-              "3 photos in the website/1f9d08a5-2982-4f01-b84c-9f911723cde1.png",
-              "3 photos in the website/81c8dc22-f0ee-4c4d-a044-8e2d8f26dd1f.png",
-              "3 photos in the website/b4e9db81-0386-498d-8c4e-8d2c2acb6cb8.png"
+              "/images/gallery/transformation-1.png",
+              "/images/gallery/transformation-2.png",
+              "/images/gallery/transformation-3.png"
             ].map((src, i) => (
               <div 
                 key={i}
@@ -950,7 +950,7 @@ function App() {
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start space-x-3 mb-6">
                 <img 
-                  src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+                  src="/images/logo/terra-nuova-logo.png" 
                   alt="TERRA NUOVA Logo"
                   className="w-10 h-10 object-contain"
                 />
@@ -1034,7 +1034,7 @@ function App() {
           <div className="flex justify-center mt-12">
             <div className="w-32 h-32 opacity-60 hover:opacity-80 transition-opacity duration-300">
               <img 
-                src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+                src="/images/logo/terra-nuova-logo.png" 
                 alt="TERRA NUOVA Logo"
                 className="w-full h-full object-contain filter brightness-110"
               />

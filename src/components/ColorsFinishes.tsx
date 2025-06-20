@@ -30,78 +30,78 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
     {
       name: 'Evolution',
       colors: [
-        { name: 'Aztec Beige', imagePath: 'Colors/65ce2fcae0c153a96f06404e_65ce2610c8b650526476d822_aztec_beige_1.4.webp' },
-        { name: 'Chestnut', imagePath: 'Colors/65ce2fca10c3b80da94bdf50_65ce262e3636a1f1468c6d31_chestnut_1.4.webp' },
-        { name: 'Cordwood', imagePath: 'Colors/65ce2fcae7380189d3d7d851_65ce2717599e12858d81469b_cordwood_1.4.webp' },
-        { name: 'Domino', imagePath: 'Colors/65ce2fcc6c5d08eb3918379f_65ce272a339e344ef68f7297_domino_1.4.webp' },
-        { name: 'Driftwood', imagePath: 'Colors/65ce2fcb29842c034aed4188_65ce27e9b00bbe9661d92895_driftwood_1.4.webp' },
-        { name: 'Mediterranean', imagePath: 'Colors/65ce2fcdfb702d1381afe19d_65ce280fdca64435b63c5e8a_mediterranean_1.4.webp' },
-        { name: 'Mount Everest', imagePath: 'Colors/65ce2fcd3a121cb5fd6299f9_65ce282bc8161bf672ef5928_mount.everest_1.4.webp' },
-        { name: 'Pebble Beach', imagePath: 'Colors/65ce2fcd2b4f26d2798f20b7_65ce28486917a028da801572_pebble_beach_1.4.webp' },
-        { name: 'Pecan', imagePath: 'Colors/65ce2fcd840c380acba7a4be_65ce28595fdf6e2046ebeed7_pecan_1.4.webp' },
-        { name: 'Sandstone', imagePath: 'Colors/65ce2fcefc54fa98a98f21ea_65ce287410310aacda70a9b9_sandstone_1.4.webp' },
-        { name: 'Silver Creek', imagePath: 'Colors/65ce2fcef8e09a0d22f69ccd_65ce2887e56463431942b5b4_silver_creek_1.4.webp' },
-        { name: 'Slate Stone', imagePath: 'Colors/65ce2fcea1aa0313049364ac_65ce28aecff599bd37b55274_slate_stone_1.4.webp' },
-        { name: 'Smoke', imagePath: 'Colors/65ce2fcf04f611621a7e84c4_65ce28c2cff599bd37b566ab_smoke_1.4.webp' },
-        { name: 'Tidal Wave', imagePath: 'Colors/65ce2fcfa90dacef2a72aa1d_65ce28de6083aec8b5529913_tidal_wave_fb-807_1.4.webp' }
+        { name: 'Aztec Beige', imagePath: '/images/colors/evolution/aztec-beige.webp' },
+        { name: 'Chestnut', imagePath: '/images/colors/evolution/chestnut.webp' },
+        { name: 'Cordwood', imagePath: '/images/colors/evolution/cordwood.webp' },
+        { name: 'Domino', imagePath: '/images/colors/evolution/domino.webp' },
+        { name: 'Driftwood', imagePath: '/images/colors/evolution/driftwood.webp' },
+        { name: 'Mediterranean', imagePath: '/images/colors/evolution/mediterranean.webp' },
+        { name: 'Mount Everest', imagePath: '/images/colors/evolution/mount-everest.webp' },
+        { name: 'Pebble Beach', imagePath: '/images/colors/evolution/pebble-beach.webp' },
+        { name: 'Pecan', imagePath: '/images/colors/evolution/pecan.webp' },
+        { name: 'Sandstone', imagePath: '/images/colors/evolution/sandstone.webp' },
+        { name: 'Silver Creek', imagePath: '/images/colors/evolution/silver-creek.webp' },
+        { name: 'Slate Stone', imagePath: '/images/colors/evolution/slate-stone.webp' },
+        { name: 'Smoke', imagePath: '/images/colors/evolution/smoke.webp' },
+        { name: 'Tidal Wave', imagePath: '/images/colors/evolution/tidal-wave.webp' }
       ]
     },
     {
       name: 'Enviroflake',
       colors: [
-        { name: 'Adobe', imagePath: 'Colors/65ce2fc95cc7927f225c745f_65ce2409f7c3d70af4f8ffcb_adobe_enviroflake_1.4.webp' },
-        { name: 'Ash', imagePath: 'Colors/65ce2fca9e0b851c9b3db2b8_65ce242c60e87177cc8f293d_ash_enviroflake_1.4.webp' },
-        { name: 'Fieldstone', imagePath: 'Colors/65ce2fcb9e0b851c9b3db3b2_65ce244583719d6f16a08d5c_fieldstone_enviroflake_1.4.webp' },
-        { name: 'Flint', imagePath: 'Colors/65ce2fcc5abd1f3c74770e7e_65ce2461ea998f52a3b5cf8e_flint_enviroflake_1.4.webp' },
-        { name: 'Granite', imagePath: 'Colors/65ce2fccac598b3d61b5c191_65ce2478488da137c13f4e11_granite_enviroflake_1.4.webp' }
+        { name: 'Adobe', imagePath: '/images/colors/enviroflake/adobe.webp' },
+        { name: 'Ash', imagePath: '/images/colors/enviroflake/ash.webp' },
+        { name: 'Fieldstone', imagePath: '/images/colors/enviroflake/fieldstone.webp' },
+        { name: 'Flint', imagePath: '/images/colors/enviroflake/flint.webp' },
+        { name: 'Granite', imagePath: '/images/colors/enviroflake/granite.webp' }
       ]
     },
     {
       name: 'Essential',
       colors: [
-        { name: 'Martin', imagePath: 'Colors/65ce2fcdc1a14a8e78243af8_65ce2519b59954bb22d21fbb_PENNTEK__MARTIN.webp' },
-        { name: 'Mudslide', imagePath: 'Colors/65ce2fcdd1e0c49d182bff11_65ce25314a36efbd49ec52e2_PENNTEK__MUDSLIDE.webp' },
-        { name: 'North Pole', imagePath: 'Colors/65ce2fcd1bcf1027ba3e24cd_65ce2575c0c9e5c84c94df24_PENNTEK__NORTHPOLE.webp' },
-        { name: 'Stormy Day', imagePath: 'Colors/65ce2fcd8925bb2c06339371_65ce2598800485ea84b406e5_PENNTEK__STORMY-DAY.webp' },
-        { name: 'Trail Mix', imagePath: 'Colors/65ce2fcd11860aca1d60c2c1_65ce25ac66de6e26cf9da000_PENNTEK__TRAIL-MIX.webp' }
+        { name: 'Martin', imagePath: '/images/colors/essential/martin.webp' },
+        { name: 'Mudslide', imagePath: '/images/colors/essential/mudslide.webp' },
+        { name: 'North Pole', imagePath: '/images/colors/essential/north-pole.webp' },
+        { name: 'Stormy Day', imagePath: '/images/colors/essential/stormy-day.webp' },
+        { name: 'Trail Mix', imagePath: '/images/colors/essential/trail-mix.webp' }
       ]
     },
     {
       name: 'Hybrid / Terrazzo',
       colors: [
-        { name: 'Anchorage Terrazzo', imagePath: 'Colors/65ce2fcbe3ce2618026c2962_65ce29806083aec8b5531a25_FB-4204_ANCHORAGE.webp' },
-        { name: 'Armadillo Terrazzo', imagePath: 'Colors/65ce2fcb7a11fbe311a3665e_65ce29af249930bedf9f0157_FB-4216_ARMADILLO.webp' },
-        { name: 'Claystone Hybrid', imagePath: 'Colors/65ce2fcb1c42533b7ee52d40_65ce295efb1c0bb9290a4f75_FB-4110_CLAYSTONE.webp' },
-        { name: 'Husky Terrazzo', imagePath: 'Colors/65ce2fcb80a107d3303f97da_65ce2997ef170aff0873953f_FB-4211_HUSKY.webp' },
-        { name: 'Shale Hybrid', imagePath: 'Colors/65ce2fcb89351dcb0a8511c5_65ce2941bc8dd6565aecb5d1_FB-4106_SHALE.webp' },
-        { name: 'Slate Hybrid', imagePath: 'Colors/65ce2fcbb808c63fdc986872_65ce292d26ced97139528bfb_FB-4105_SLATE.webp' },
-        { name: 'Turquoise Hybrid', imagePath: 'Colors/65ce2fcb0e532b9389e49e28_65ce2917dca64435b63d0f5c_FB-4104_TURQUOISE.webp' }
+        { name: 'Anchorage Terrazzo', imagePath: '/images/colors/hybrid-terrazzo/anchorage-terrazzo.webp' },
+        { name: 'Armadillo Terrazzo', imagePath: '/images/colors/hybrid-terrazzo/armadillo-terrazzo.webp' },
+        { name: 'Claystone Hybrid', imagePath: '/images/colors/hybrid-terrazzo/claystone-hybrid.webp' },
+        { name: 'Husky Terrazzo', imagePath: '/images/colors/hybrid-terrazzo/husky-terrazzo.webp' },
+        { name: 'Shale Hybrid', imagePath: '/images/colors/hybrid-terrazzo/shale-hybrid.webp' },
+        { name: 'Slate Hybrid', imagePath: '/images/colors/hybrid-terrazzo/slate-hybrid.webp' },
+        { name: 'Turquoise Hybrid', imagePath: '/images/colors/hybrid-terrazzo/turquoise-hybrid.webp' }
       ]
     },
     {
       name: 'Quartz',
       colors: [
-        { name: 'Aqua', imagePath: 'Colors/65ce2fc98b6264cce1204d69_65ce2b1e37795bc06d114871_Aqua.webp' },
-        { name: 'Blizzard', imagePath: 'Colors/65ce2fca71cc076f2c9be26c_65ce2b40eee81fcdb8889ab6_Blizzard.webp' },
-        { name: 'Cream', imagePath: 'Colors/65ce2fca73e8569a4d0b3b4a_65ce2b517c0c59fda1efd5bf_Cream-1.webp' },
-        { name: 'Forge', imagePath: 'Colors/65ce2fcc9fdd7de1688abb9e_65ce2b76689467ebd02ec6da_Forge.webp' },
-        { name: 'Hazel', imagePath: 'Colors/65ce2fcc5d8a5e84a938567c_65ce2b8f978b3b38ab0f88ad_Hazel.webp' },
-        { name: 'Lava', imagePath: 'Colors/65ce2fcc3e0eeb9c63e4db62_65ce2bae787a5c282e159ed7_Lava.webp' }
+        { name: 'Aqua', imagePath: '/images/colors/quartz/aqua.webp' },
+        { name: 'Blizzard', imagePath: '/images/colors/quartz/blizzard.webp' },
+        { name: 'Cream', imagePath: '/images/colors/quartz/cream.webp' },
+        { name: 'Forge', imagePath: '/images/colors/quartz/forge.webp' },
+        { name: 'Hazel', imagePath: '/images/colors/quartz/hazel.webp' },
+        { name: 'Lava', imagePath: '/images/colors/quartz/lava.webp' }
       ]
     },
     {
       name: 'Metallic',
       colors: [
-        { name: 'Bronze', imagePath: 'Color mettalic/65ce2fcab65830862b864377_65ce2a1116bddb066e1650a4_Bronze.webp' },
-        { name: 'Capri', imagePath: 'Color mettalic/65ce2fca4329c7e0d6c48454_65ce2a30ba6f9756e23372b4_Capri.webp' },
-        { name: 'Midnight', imagePath: 'Color mettalic/65ce2fcca9a989cc4e08d260_65ce2a40b189436085c4bb1e_Midnight.webp' },
-        { name: 'Mocha', imagePath: 'Color mettalic/65ce2fcd0e532b9389e49f09_65ce2a5eab7f6d4ebffef113_Mocha.webp' },
-        { name: 'Royal', imagePath: 'Color mettalic/65ce2fced7a7d7bf15ca4fba_65ce2a6eac57d7bfb974e0d2_Royal.webp' },
-        { name: 'Ruby', imagePath: 'Color mettalic/65ce2fce82280fed75e9b442_65ce2a861b858f714cf562e4_Ruby.webp' },
-        { name: 'Scarlett', imagePath: 'Color mettalic/65ce2fcebb57a7d5fed13725_65ce2a9b16bddb066e16c3b8_Scarlett.webp' },
-        { name: 'Snow', imagePath: 'Color mettalic/65ce2fce361a559082bd1825_65ce2abda9ce7780aca7f4a2_Snow.webp' },
-        { name: 'Steel', imagePath: 'Color mettalic/65ce2fcf6d2dd438a61814b2_65ce2acd67ab1b368a2c7bf3_Steel.webp' },
-        { name: 'Sunburst', imagePath: 'Color mettalic/65ce2fcf0e532b9389e49f9f_65ce2ae6ab7f6d4ebfff053a_Sunburst.webp' }
+        { name: 'Bronze', imagePath: '/images/colors/metallic/bronze.webp' },
+        { name: 'Capri', imagePath: '/images/colors/metallic/capri.webp' },
+        { name: 'Midnight', imagePath: '/images/colors/metallic/midnight.webp' },
+        { name: 'Mocha', imagePath: '/images/colors/metallic/mocha.webp' },
+        { name: 'Royal', imagePath: '/images/colors/metallic/royal.webp' },
+        { name: 'Ruby', imagePath: '/images/colors/metallic/ruby.webp' },
+        { name: 'Scarlett', imagePath: '/images/colors/metallic/scarlett.webp' },
+        { name: 'Snow', imagePath: '/images/colors/metallic/snow.webp' },
+        { name: 'Steel', imagePath: '/images/colors/metallic/steel.webp' },
+        { name: 'Sunburst', imagePath: '/images/colors/metallic/sunburst.webp' }
       ]
     }
   ];
@@ -196,7 +196,7 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
             <img 
-              src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+              src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />

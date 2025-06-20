@@ -172,7 +172,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
           <div className="flex justify-center mt-16">
             <div className="w-32 h-32">
               <img 
-                src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+                src="/images/logo/terra-nuova-logo.png" 
                 alt="TERRA NUOVA Logo"
                 className="w-full h-full object-contain opacity-80"
               />
@@ -190,7 +190,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
             <img 
-              src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+              src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
@@ -432,7 +432,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
           <div className="flex justify-center mt-16">
             <div className="w-40 h-40">
               <img 
-                src="/LOGO/Terra_Nuova_Logo_Red_Updated_v2.png" 
+                src="/images/logo/terra-nuova-logo.png" 
                 alt="TERRA NUOVA Logo"
                 className="w-full h-full object-contain opacity-80"
               />
