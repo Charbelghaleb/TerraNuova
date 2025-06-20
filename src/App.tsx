@@ -9,6 +9,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isGalleryDropdownOpen, setIsGalleryDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const galleryDropdownRef = useRef<HTMLDivElement>(null);
@@ -275,19 +276,22 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <div className="flex items-center space-x-3">
+          <button
+            onClick={() => setCurrentPage('home')}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
             <img 
               src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
-            <h1 className="text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
-          </div>
+            <h1 className="text-xl md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
+          </button>
           <button
             onClick={() => setCurrentPage('home')}
-            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors"
+            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors min-h-[44px] px-3"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-medium">Back to Home</span>
@@ -296,22 +300,22 @@ function App() {
       </nav>
 
       {/* Service Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative z-10">
+      <section className="pt-24 md:pt-32 pb-20 px-4 md:px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left side - Content */}
             <div className="text-center lg:text-left">
-              <div className={`w-20 h-20 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-8`}>
-                <service.icon className="w-10 h-10 text-white" />
+              <div className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 md:mb-8`}>
+                <service.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
               </div>
-              <h1 className="text-5xl md:text-6xl font-black text-[#0066CC] mb-6">{service.title}</h1>
-              <p className="text-xl text-gray-600 leading-relaxed">{service.desc}</p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mb-4 md:mb-6 leading-tight">{service.title}</h1>
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">{service.desc}</p>
             </div>
             
             {/* Right side - Hero Image */}
             {(service.id === 'chip-system' || service.id === 'quartz-system' || service.id === 'metallic-system' || service.id === 'polyurea-shop-floor-system' || service.id === 'solid-color-polyurea' || service.id === 'solid-color-epoxy' || service.id === 'formcove-system') && (
               <div className="flex justify-center lg:justify-end">
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-lg">
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-lg w-full">
                   <img 
                     src={service.id === 'chip-system' 
                       ? "/images/chip-system/process-diagram.png"
@@ -339,17 +343,17 @@ function App() {
       </section>
 
       {/* Project Gallery */}
-      <section className="py-20 px-6 bg-white/80 backdrop-blur-sm relative z-10">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-white/80 backdrop-blur-sm relative z-10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-black text-center text-[#0066CC] mb-16">Project Gallery</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-3xl md:text-4xl font-black text-center text-[#0066CC] mb-12 md:mb-16">Project Gallery</h2>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {service.images.map((src: string, i: number) => (
               <div key={i} className="group">
                 <div className="relative overflow-hidden rounded-2xl shadow-lg">
                   <img 
                     src={src}
                     alt={`${service.title} project ${i + 1}`}
-                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -360,17 +364,17 @@ function App() {
       </section>
 
       {/* Benefits & Features */}
-      <section className="py-20 px-6 bg-gray-50/80 backdrop-blur-sm relative z-10">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-gray-50/80 backdrop-blur-sm relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Key Benefits */}
             <div>
-              <h3 className="text-3xl font-bold text-[#0066CC] mb-8">Key Benefits</h3>
-              <ul className="space-y-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#0066CC] mb-6 md:mb-8">Key Benefits</h3>
+              <ul className="space-y-3 md:space-y-4">
                 {service.benefits.map((benefit: string, i: number) => (
                   <li key={i} className="flex items-start space-x-3">
-                    <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 font-medium">{benefit}</span>
+                    <Check className="w-5 h-5 md:w-6 md:h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 font-medium text-base md:text-lg">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -378,12 +382,12 @@ function App() {
 
             {/* Applications */}
             <div>
-              <h3 className="text-3xl font-bold text-[#0066CC] mb-8">Applications</h3>
-              <ul className="space-y-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#0066CC] mb-6 md:mb-8">Applications</h3>
+              <ul className="space-y-3 md:space-y-4">
                 {service.applications.map((app: string, i: number) => (
                   <li key={i} className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-[#0066CC] rounded-full flex-shrink-0 mt-3" />
-                    <span className="text-gray-700 font-medium">{app}</span>
+                    <span className="text-gray-700 font-medium text-base md:text-lg">{app}</span>
                   </li>
                 ))}
               </ul>
@@ -393,13 +397,13 @@ function App() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-[#0066CC] to-red-600 relative z-10">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-r from-[#0066CC] to-red-600 relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-black mb-6">Ready to Transform Your Space?</h2>
-          <p className="text-xl mb-8 opacity-90">Get a free estimate for your {service.title.toLowerCase()} project today.</p>
+          <h2 className="text-3xl md:text-4xl font-black mb-4 md:mb-6">Ready to Transform Your Space?</h2>
+          <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">Get a free estimate for your {service.title.toLowerCase()} project today.</p>
           <button 
             onClick={() => setCurrentPage('contact')}
-            className="bg-white text-[#0066CC] font-bold py-4 px-8 rounded-full text-lg premium-button-hover"
+            className="bg-white text-[#0066CC] font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg premium-button-hover min-h-[44px]"
           >
             Get Free Estimate
           </button>
@@ -436,23 +440,28 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <div className="flex items-center space-x-3">
+          <button
+            onClick={() => setCurrentPage('home')}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
             <img 
               src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
-            <h1 className="text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
-          </div>
+            <h1 className="text-xl md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
+          </button>
+          
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 text-gray-600">
             {/* Services Dropdown */}
             <div className="relative" ref={servicesDropdownRef}>
               <button
                 onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
                 onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                className="flex items-center space-x-1 hover:text-[#0066CC] transition-colors font-medium py-2"
+                className="flex items-center space-x-1 hover:text-[#0066CC] transition-colors font-medium py-2 min-h-[44px]"
               >
                 <span>Services</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
@@ -475,7 +484,7 @@ function App() {
                         setCurrentPage(service.id);
                         setIsServicesDropdownOpen(false);
                       }}
-                      className="w-full text-left p-4 rounded-xl hover:bg-gradient-to-r hover:from-[#0066CC]/5 hover:to-red-600/5 transition-all duration-200 group"
+                      className="w-full text-left p-4 rounded-xl hover:bg-gradient-to-r hover:from-[#0066CC]/5 hover:to-red-600/5 transition-all duration-200 group min-h-[44px]"
                       style={{
                         animationDelay: `${index * 50}ms`
                       }}
@@ -502,7 +511,7 @@ function App() {
                   <a 
                     href="#services"
                     onClick={() => setIsServicesDropdownOpen(false)}
-                    className="block text-center text-sm font-medium text-[#0066CC] hover:text-red-600 transition-colors"
+                    className="block text-center text-sm font-medium text-[#0066CC] hover:text-red-600 transition-colors min-h-[44px] flex items-center justify-center"
                   >
                     View All Services →
                   </a>
@@ -515,7 +524,7 @@ function App() {
               <button
                 onClick={() => setIsGalleryDropdownOpen(!isGalleryDropdownOpen)}
                 onMouseEnter={() => setIsGalleryDropdownOpen(true)}
-                className="flex items-center space-x-1 hover:text-[#0066CC] transition-colors font-medium py-2"
+                className="flex items-center space-x-1 hover:text-[#0066CC] transition-colors font-medium py-2 min-h-[44px]"
               >
                 <span>Gallery</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isGalleryDropdownOpen ? 'rotate-180' : ''}`} />
@@ -536,7 +545,7 @@ function App() {
                       setCurrentPage('colors-finishes');
                       setIsGalleryDropdownOpen(false);
                     }}
-                    className="w-full text-left p-4 rounded-xl hover:bg-gradient-to-r hover:from-[#0066CC]/5 hover:to-red-600/5 transition-all duration-200 group"
+                    className="w-full text-left p-4 rounded-xl hover:bg-gradient-to-r hover:from-[#0066CC]/5 hover:to-red-600/5 transition-all duration-200 group min-h-[44px]"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 bg-gradient-to-r from-red-600 to-red-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
@@ -558,7 +567,7 @@ function App() {
             
             <button 
               onClick={() => setCurrentPage('contact')}
-              className="hover:text-[#0066CC] transition-colors font-medium"
+              className="hover:text-[#0066CC] transition-colors font-medium min-h-[44px] px-3"
             >
               Contact
             </button>
@@ -566,7 +575,7 @@ function App() {
             {/* Phone Number */}
             <a 
               href="tel:+17182004133"
-              className="flex items-center space-x-2 hover:text-[#0066CC] transition-colors font-medium group"
+              className="flex items-center space-x-2 hover:text-[#0066CC] transition-colors font-medium group min-h-[44px]"
             >
               <Phone className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
               <span>(718) 200-4133</span>
@@ -576,60 +585,67 @@ function App() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
-              className="text-gray-600 hover:text-[#0066CC] transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-600 hover:text-[#0066CC] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
-              <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${isMobileMenuOpen ? 'rotate-180' : ''}`} />
             </button>
           </div>
         </div>
 
         {/* Mobile Dropdown */}
-        <div className={`md:hidden mt-4 transition-all duration-300 ${isServicesDropdownOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 space-y-2">
-            {services.map((service) => (
-              <button
-                key={service.id}
-                onClick={() => {
-                  setCurrentPage(service.id);
-                  setIsServicesDropdownOpen(false);
-                }}
-                className="w-full text-left p-3 rounded-lg hover:bg-[#0066CC]/5 transition-colors"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className={`w-8 h-8 bg-gradient-to-r ${service.gradient} rounded-lg flex items-center justify-center`}>
-                    <service.icon className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900 text-sm">{service.title}</h3>
-                    <p className="text-xs text-gray-500">{service.shortDesc}</p>
-                  </div>
-                </div>
-              </button>
-            ))}
-            <div className="border-t border-gray-200 pt-3 mt-3">
+        <div className={`md:hidden mt-4 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 space-y-4">
+            {/* Services in Mobile */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-3 text-lg">Services</h3>
+              <div className="space-y-2">
+                {services.map((service) => (
+                  <button
+                    key={service.id}
+                    onClick={() => {
+                      setCurrentPage(service.id);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full text-left p-3 rounded-lg hover:bg-[#0066CC]/5 transition-colors min-h-[44px] flex items-center"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-8 h-8 bg-gradient-to-r ${service.gradient} rounded-lg flex items-center justify-center`}>
+                        <service.icon className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-gray-900 text-base">{service.title}</h4>
+                        <p className="text-sm text-gray-500">{service.shortDesc}</p>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-200 pt-4 space-y-3">
               <button 
                 onClick={() => {
                   setCurrentPage('colors-finishes');
-                  setIsServicesDropdownOpen(false);
+                  setIsMobileMenuOpen(false);
                 }}
-                className="w-full text-center py-2 text-[#0066CC] font-medium hover:text-red-600 transition-colors"
+                className="w-full text-center py-3 text-[#0066CC] font-medium hover:text-red-600 transition-colors min-h-[44px] text-lg"
               >
                 Colors & Finishes
               </button>
               <button 
                 onClick={() => {
                   setCurrentPage('contact');
-                  setIsServicesDropdownOpen(false);
+                  setIsMobileMenuOpen(false);
                 }}
-                className="w-full text-center py-2 text-[#0066CC] font-medium hover:text-red-600 transition-colors"
+                className="w-full text-center py-3 text-[#0066CC] font-medium hover:text-red-600 transition-colors min-h-[44px] text-lg"
               >
                 Contact Us
               </button>
               <a 
                 href="tel:+17182004133"
-                className="block w-full text-center py-2 text-[#0066CC] font-medium hover:text-red-600 transition-colors"
-                onClick={() => setIsServicesDropdownOpen(false)}
+                className="block w-full text-center py-3 text-[#0066CC] font-medium hover:text-red-600 transition-colors min-h-[44px] text-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Call (718) 200-4133
               </a>
@@ -639,19 +655,19 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center items-center relative px-6 pt-20 z-10">
-        <div className="text-center space-y-8 max-w-6xl z-20 relative">
+      <section className="min-h-screen flex flex-col justify-center items-center relative px-4 md:px-6 pt-20 z-10">
+        <div className="text-center space-y-6 md:space-y-8 max-w-6xl z-20 relative">
           {/* Enhanced Typography with Visual Effects */}
           <div className="hero-text-container">
             <h2 
-              className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-[#0066CC] mb-4 scroll-reveal hero-text-enhanced"
+              className="text-3xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-[#0066CC] mb-4 scroll-reveal hero-text-enhanced"
               id="hero-title-1"
               style={getScrollAnimationStyle('hero-title-1', 'slideUp', 0)}
             >
               TIRED OF YOUR
             </h2>
             <h2 
-              className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-4 scroll-reveal hero-text-enhanced"
+              className="text-3xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-4 scroll-reveal hero-text-enhanced"
               id="hero-title-2"
               style={getScrollAnimationStyle('hero-title-2', 'slideUp', 1)}
             >
@@ -660,7 +676,7 @@ function App() {
               </span>
             </h2>
             <h2 
-              className="text-4xl md:text-6xl lg:text-7xl font-black text-[#0066CC] leading-tight tracking-tight mb-8 scroll-reveal hero-text-enhanced"
+              className="text-3xl md:text-6xl lg:text-7xl font-black text-[#0066CC] leading-tight tracking-tight mb-6 md:mb-8 scroll-reveal hero-text-enhanced"
               id="hero-title-3"
               style={getScrollAnimationStyle('hero-title-3', 'slideUp', 2)}
             >
@@ -668,15 +684,15 @@ function App() {
             </h2>
           </div>
           
-          <div className="mt-12 scroll-reveal" id="hero-subtitle" style={getScrollAnimationStyle('hero-subtitle', 'fadeIn', 3)}>
-            <p className="text-2xl md:text-3xl text-gray-700 font-medium">
+          <div className="mt-8 md:mt-12 scroll-reveal" id="hero-subtitle" style={getScrollAnimationStyle('hero-subtitle', 'fadeIn', 3)}>
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 font-medium">
               We have the <span className="text-[#0066CC] font-bold">solution.</span>
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-[#0066CC] to-red-500 mx-auto mt-6 rounded-full"></div>
           </div>
           <button 
             onClick={() => setCurrentPage('contact')}
-            className="mt-12 bg-gradient-to-r from-[#0066CC] to-red-600 text-white font-bold py-4 px-8 rounded-full text-lg scroll-reveal premium-button-hover"
+            className="mt-8 md:mt-12 bg-gradient-to-r from-[#0066CC] to-red-600 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg scroll-reveal premium-button-hover min-h-[44px]"
             id="hero-cta"
             style={getScrollAnimationStyle('hero-cta', 'scaleIn', 4)}
           >
@@ -685,7 +701,7 @@ function App() {
 
           {/* Animated Scroll Indicator with Logo */}
           <div 
-            className="flex justify-center mt-16 scroll-reveal"
+            className="flex justify-center mt-12 md:mt-16 scroll-reveal"
             id="scroll-indicator"
             style={getScrollAnimationStyle('scroll-indicator', 'scaleIn', 5)}
           >
@@ -695,7 +711,7 @@ function App() {
                 <img 
                   src="/images/logo/terra-nuova-logo.png" 
                   alt="TERRA NUOVA Logo - Scroll Down"
-                  className="w-20 h-20 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
               
@@ -714,25 +730,25 @@ function App() {
       </section>
 
       {/* The Choice Section */}
-      <section className="py-20 px-6 relative bg-white/80 backdrop-blur-sm z-10">
+      <section className="py-16 md:py-20 px-4 md:px-6 relative bg-white/80 backdrop-blur-sm z-10">
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16 md:mb-20">
             <h2 
-              className="text-5xl md:text-7xl font-black text-[#0066CC] mb-4 scroll-reveal"
+              className="text-3xl md:text-5xl lg:text-7xl font-black text-[#0066CC] mb-4 scroll-reveal"
               id="choice-title-1"
               style={getScrollAnimationStyle('choice-title-1', 'slideUp', 0)}
             >
               You Have
             </h2>
             <h2 
-              className="text-5xl md:text-7xl font-black scroll-reveal mb-4"
+              className="text-3xl md:text-5xl lg:text-7xl font-black scroll-reveal mb-4"
               id="choice-title-2"
               style={getScrollAnimationStyle('choice-title-2', 'slideUp', 1)}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">2 Choices</span>
             </h2>
             <h2 
-              className="text-5xl md:text-7xl font-black text-[#0066CC] scroll-reveal"
+              className="text-3xl md:text-5xl lg:text-7xl font-black text-[#0066CC] scroll-reveal"
               id="choice-title-3"
               style={getScrollAnimationStyle('choice-title-3', 'slideUp', 2)}
             >
@@ -741,73 +757,73 @@ function App() {
           </div>
           
           {/* Cracked Option */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-12 md:mb-16">
             <div 
               className="text-center scroll-reveal max-w-lg"
               id="cracked-option"
               style={getScrollAnimationStyle('cracked-option', 'slideLeft', 0)}
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-8 border border-red-200">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-6 md:mb-8 border border-red-200">
                 <img 
                   src="/images/before-after/cracked-floor.jpg" 
                   alt="Cracked concrete floor"
-                  className="w-full h-80 object-cover"
+                  className="w-full h-64 md:h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-red-500/30 to-transparent" />
               </div>
               <div className="flex items-center justify-center space-x-4 mb-4">
-                <X className="w-8 h-8 text-red-500" />
-                <h3 className="text-3xl font-bold text-red-500">Either Cracked or Stained</h3>
+                <X className="w-6 h-6 md:w-8 md:h-8 text-red-500" />
+                <h3 className="text-xl md:text-3xl font-bold text-red-500">Either Cracked or Stained</h3>
               </div>
-              <p className="text-gray-600 text-lg font-medium">Damaged, unsightly floors that hurt your business image</p>
+              <p className="text-gray-600 text-base md:text-lg font-medium">Damaged, unsightly floors that hurt your business image</p>
             </div>
           </div>
 
           {/* OR Divider */}
           <div 
-            className="text-center scroll-reveal mb-16"
+            className="text-center scroll-reveal mb-12 md:mb-16"
             id="or-divider"
             style={getScrollAnimationStyle('or-divider', 'scaleIn', 1)}
           >
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-[#0066CC] to-red-600 rounded-full shadow-lg">
-              <span className="text-4xl font-black text-white">OR</span>
+            <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-gradient-to-r from-[#0066CC] to-red-600 rounded-full shadow-lg">
+              <span className="text-3xl md:text-4xl font-black text-white">OR</span>
             </div>
           </div>
 
           {/* Stunning Option */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-12 md:mb-16">
             <div 
               className="text-center scroll-reveal max-w-lg"
               id="seamless-option"
               style={getScrollAnimationStyle('seamless-option', 'slideRight', 2)}
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-8 border border-blue-200">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-6 md:mb-8 border border-blue-200">
                 <img 
                   src="/images/before-after/finished-floor.jpg" 
                   alt="Beautiful epoxy floor"
-                  className="w-full h-80 object-cover"
+                  className="w-full h-64 md:h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-500/30 to-transparent" />
               </div>
               <div className="flex items-center justify-center space-x-4 mb-4">
-                <Check className="w-8 h-8 text-green-500" />
-                <h3 className="text-3xl font-bold text-[#0066CC]">Stunning and Seamless</h3>
+                <Check className="w-6 h-6 md:w-8 md:h-8 text-green-500" />
+                <h3 className="text-xl md:text-3xl font-bold text-[#0066CC]">Stunning and Seamless</h3>
               </div>
-              <p className="text-gray-600 text-lg font-medium">Professional epoxy finish that transforms your space</p>
+              <p className="text-gray-600 text-base md:text-lg font-medium">Professional epoxy finish that transforms your space</p>
             </div>
           </div>
 
           {/* Solution Text */}
           <div className="text-center">
             <h3 
-              className="text-4xl md:text-5xl font-black text-[#0066CC] mb-6 scroll-reveal"
+              className="text-2xl md:text-4xl lg:text-5xl font-black text-[#0066CC] mb-4 md:mb-6 scroll-reveal"
               id="solution-title-1"
               style={getScrollAnimationStyle('solution-title-1', 'slideUp', 3)}
             >
               Transform Your Space with
             </h3>
             <h3 
-              className="text-4xl md:text-5xl font-black mb-6 scroll-reveal"
+              className="text-2xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 scroll-reveal"
               id="solution-title-2"
               style={getScrollAnimationStyle('solution-title-2', 'slideUp', 4)}
             >
@@ -816,7 +832,7 @@ function App() {
               </span>
             </h3>
             <p 
-              className="text-xl text-gray-600 font-medium max-w-2xl mx-auto scroll-reveal"
+              className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl mx-auto scroll-reveal"
               id="solution-description"
               style={getScrollAnimationStyle('solution-description', 'fadeIn', 5)}
             >
@@ -827,9 +843,9 @@ function App() {
       </section>
 
       {/* Transformation Section */}
-      <section className="py-20 px-6 relative bg-gray-50/80 backdrop-blur-sm z-10">
+      <section className="py-16 md:py-20 px-4 md:px-6 relative bg-gray-50/80 backdrop-blur-sm z-10">
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16">
             {[
               "/images/gallery/transformation-1.png",
               "/images/gallery/transformation-2.png",
@@ -844,7 +860,7 @@ function App() {
                 <img 
                   src={src}
                   alt={`Epoxy floor transformation ${i + 1}`}
-                  className="w-full h-48 object-cover rounded-lg shadow-lg border border-[#0066CC]/10"
+                  className="w-full h-40 md:h-48 object-cover rounded-lg shadow-lg border border-[#0066CC]/10"
                 />
               </div>
             ))}
@@ -852,13 +868,13 @@ function App() {
           
           {/* Get Free Estimate Button */}
           <div 
-            className="mt-12 scroll-reveal"
+            className="mt-8 md:mt-12 scroll-reveal"
             id="transformation-cta"
             style={getScrollAnimationStyle('transformation-cta', 'scaleIn', 3)}
           >
             <button 
               onClick={() => setCurrentPage('contact')}
-              className="bg-gradient-to-r from-[#0066CC] to-red-600 text-white font-bold py-4 px-8 rounded-full text-lg premium-button-hover"
+              className="bg-gradient-to-r from-[#0066CC] to-red-600 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg premium-button-hover min-h-[44px]"
             >
               Get a Free Estimate
             </button>
@@ -867,31 +883,31 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-6 relative bg-white/80 backdrop-blur-sm z-10">
+      <section id="services" className="py-16 md:py-20 px-4 md:px-6 relative bg-white/80 backdrop-blur-sm z-10">
         <div className="max-w-7xl mx-auto relative z-10">
           <h2 
-            className="text-4xl md:text-5xl font-black text-center text-[#0066CC] mb-20 scroll-reveal"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-[#0066CC] mb-16 md:mb-20 scroll-reveal"
             id="services-title"
             style={getScrollAnimationStyle('services-title', 'slideUp', 0)}
           >
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066CC] to-red-600">Coating Systems</span>
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, i) => (
               <div 
                 key={i}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal border border-gray-100 hover:border-[#0066CC]/30 cursor-pointer group"
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal border border-gray-100 hover:border-[#0066CC]/30 cursor-pointer group"
                 id={`service-card-${i}`}
                 style={getScrollAnimationStyle(`service-card-${i}`, i % 2 === 0 ? 'slideLeft' : 'slideRight', Math.floor(i / 2))}
                 onClick={() => setCurrentPage(service.id)}
               >
-                <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-8 h-8 text-white" />
+                <div className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold text-[#0066CC] mb-4 group-hover:text-red-600 transition-colors">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
-                <div className="mt-6 text-[#0066CC] font-semibold group-hover:text-red-600 transition-colors">
+                <h3 className="text-xl md:text-2xl font-semibold text-[#0066CC] mb-3 md:mb-4 group-hover:text-red-600 transition-colors">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-base">{service.desc}</p>
+                <div className="mt-4 md:mt-6 text-[#0066CC] font-semibold group-hover:text-red-600 transition-colors">
                   Learn More →
                 </div>
               </div>
@@ -901,10 +917,10 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 relative bg-gray-50/80 backdrop-blur-sm z-10">
+      <section id="contact" className="py-16 md:py-20 px-4 md:px-6 relative bg-gray-50/80 backdrop-blur-sm z-10">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 
-            className="text-4xl md:text-5xl font-black mb-8 scroll-reveal text-[#0066CC]"
+            className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 md:mb-8 scroll-reveal text-[#0066CC]"
             id="contact-title"
             style={getScrollAnimationStyle('contact-title', 'slideUp', 0)}
           >
@@ -919,7 +935,7 @@ function App() {
           >
             <button
               onClick={() => setCurrentPage('contact')}
-              className="bg-gradient-to-r from-[#0066CC] to-red-600 hover:from-blue-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl premium-button-hover"
+              className="bg-gradient-to-r from-[#0066CC] to-red-600 hover:from-blue-700 hover:to-red-700 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl premium-button-hover min-h-[44px]"
             >
               Get a Free Estimate
             </button>
@@ -943,34 +959,37 @@ function App() {
           />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-16">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
           {/* Main Footer Content */}
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
             {/* Company Info */}
             <div className="text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start space-x-3 mb-6">
+              <button
+                onClick={() => setCurrentPage('home')}
+                className="flex items-center justify-center md:justify-start space-x-3 mb-4 md:mb-6 hover:opacity-80 transition-opacity"
+              >
                 <img 
                   src="/images/logo/terra-nuova-logo.png" 
                   alt="TERRA NUOVA Logo"
                   className="w-10 h-10 object-contain"
                 />
-                <h3 className="text-2xl font-bold text-white tracking-wider">TERRA NUOVA</h3>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl md:text-2xl font-bold text-white tracking-wider">TERRA NUOVA</h3>
+              </button>
+              <p className="text-gray-300 leading-relaxed text-base">
                 Professional industrial floor coating solutions for businesses across Staten Island and the greater New York area.
               </p>
             </div>
 
             {/* Contact Information */}
             <div className="text-center md:text-left">
-              <h4 className="text-xl font-bold text-white mb-6">Contact Information</h4>
-              <div className="space-y-4">
+              <h4 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Contact Information</h4>
+              <div className="space-y-3 md:space-y-4">
                 {/* Address */}
                 <div className="flex items-start justify-center md:justify-start space-x-3 group">
                   <MapPin className="w-5 h-5 text-[#0066CC] flex-shrink-0 mt-0.5 group-hover:text-blue-400 transition-colors" />
                   <div>
-                    <p className="text-gray-300 font-medium">166 Industrial Loop</p>
-                    <p className="text-gray-300">Staten Island, NY 10309</p>
+                    <p className="text-gray-300 font-medium text-base">166 Industrial Loop</p>
+                    <p className="text-gray-300 text-base">Staten Island, NY 10309</p>
                   </div>
                 </div>
 
@@ -979,7 +998,7 @@ function App() {
                   <Phone className="w-5 h-5 text-[#0066CC] flex-shrink-0 group-hover:text-blue-400 transition-colors" />
                   <a 
                     href="tel:+17182004133"
-                    className="text-gray-300 font-medium hover:text-white transition-colors"
+                    className="text-gray-300 font-medium hover:text-white transition-colors text-base min-h-[44px] flex items-center"
                   >
                     (718) 200-4133
                   </a>
@@ -989,29 +1008,29 @@ function App() {
 
             {/* Quick Links */}
             <div className="text-center md:text-left">
-              <h4 className="text-xl font-bold text-white mb-6">Quick Links</h4>
+              <h4 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Quick Links</h4>
               <div className="space-y-3">
                 <a 
                   href="#services"
-                  className="block text-gray-300 hover:text-white transition-colors font-medium"
+                  className="block text-gray-300 hover:text-white transition-colors font-medium text-base min-h-[44px] flex items-center justify-center md:justify-start"
                 >
                   Our Services
                 </a>
                 <button 
                   onClick={() => setCurrentPage('colors-finishes')}
-                  className="block text-gray-300 hover:text-white transition-colors font-medium"
+                  className="block text-gray-300 hover:text-white transition-colors font-medium text-base min-h-[44px] flex items-center justify-center md:justify-start w-full"
                 >
                   Colors & Finishes
                 </button>
                 <button 
                   onClick={() => setCurrentPage('contact')}
-                  className="block text-gray-300 hover:text-white transition-colors font-medium"
+                  className="block text-gray-300 hover:text-white transition-colors font-medium text-base min-h-[44px] flex items-center justify-center md:justify-start w-full"
                 >
                   Get Free Estimate
                 </button>
                 <a 
                   href="tel:+17182004133"
-                  className="block text-gray-300 hover:text-white transition-colors font-medium"
+                  className="block text-gray-300 hover:text-white transition-colors font-medium text-base min-h-[44px] flex items-center justify-center md:justify-start"
                 >
                   Call Now
                 </a>
@@ -1020,25 +1039,28 @@ function App() {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-700 mb-8"></div>
+          <div className="border-t border-gray-700 mb-6 md:mb-8"></div>
 
           {/* Bottom Footer */}
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400 text-sm text-center md:text-left">
               © 2025 TERRA NUOVA Industrial Floor Coatings. All rights reserved.
             </div>
           </div>
 
           {/* Company Logo at Bottom */}
-          <div className="flex justify-center mt-12">
-            <div className="w-32 h-32 opacity-60 hover:opacity-80 transition-opacity duration-300">
+          <div className="flex justify-center mt-8 md:mt-12">
+            <button
+              onClick={() => setCurrentPage('home')}
+              className="w-24 h-24 md:w-32 md:h-32 opacity-60 hover:opacity-80 transition-opacity duration-300"
+            >
               <img 
                 src="/images/logo/terra-nuova-logo.png" 
                 alt="TERRA NUOVA Logo"
                 className="w-full h-full object-contain filter brightness-110"
               />
-            </div>
+            </button>
           </div>
         </div>
       </footer>

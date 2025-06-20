@@ -31,6 +31,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string>('');
   const [recaptchaVerified, setRecaptchaVerified] = useState(false);
 
   const serviceOptions = [
@@ -123,18 +124,35 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
     }
 
     setIsSubmitting(true);
+    setSubmitError('');
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Here you would typically send the form data to your backend
-      console.log('Form submitted:', formData);
-      
-      setIsSubmitted(true);
+      // Submit to Make.com webhook
+      const response = await fetch('https://hook.us2.make.com/5mly6kt37xfjw23rc2lsed1vp6qylusv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          serviceInterest: formData.serviceInterest,
+          projectDescription: formData.projectDescription,
+          propertyAddress: formData.propertyAddress,
+          submittedAt: new Date().toISOString(),
+          source: 'Terra Nuova Website'
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Failed to submit form');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
-      setErrors({ submit: 'There was an error submitting your form. Please try again.' });
+      setSubmitError('There was an error submitting your form. Please try again or call us directly at (718) 200-4133.');
     } finally {
       setIsSubmitting(false);
     }
@@ -152,25 +170,25 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8">
-            <Check className="w-10 h-10 text-white" />
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <Check className="w-8 h-8 md:w-10 md:h-10 text-white" />
           </div>
-          <h1 className="text-4xl font-black text-[#0066CC] mb-6">Thank You!</h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <h1 className="text-3xl md:text-4xl font-black text-[#0066CC] mb-4 md:mb-6">Thank You!</h1>
+          <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
             Your request has been submitted successfully. Our team will contact you within 24 hours to discuss your project and schedule a free estimate.
           </p>
           <button
             onClick={onBack}
-            className="bg-gradient-to-r from-[#0066CC] to-purple-600 text-white font-bold py-4 px-8 rounded-full text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            className="bg-gradient-to-r from-[#0066CC] to-purple-600 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px]"
           >
             Return to Home
           </button>
           
           {/* Logo at bottom */}
-          <div className="flex justify-center mt-16">
-            <div className="w-32 h-32">
+          <div className="flex justify-center mt-12 md:mt-16">
+            <div className="w-24 h-24 md:w-32 md:h-32">
               <img 
                 src="/images/logo/terra-nuova-logo.png" 
                 alt="TERRA NUOVA Logo"
@@ -186,19 +204,22 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <div className="flex items-center space-x-3">
+          <button
+            onClick={onBack}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
             <img 
               src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
-            <h1 className="text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
-          </div>
+            <h1 className="text-xl md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
+          </button>
           <button
             onClick={onBack}
-            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors"
+            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors min-h-[44px] px-3"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-medium">Back to Home</span>
@@ -207,22 +228,22 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
       </nav>
 
       {/* Contact Form Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-black text-[#0066CC] mb-6">Get Your Free Estimate</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mb-4 md:mb-6">Get Your Free Estimate</h1>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Ready to transform your space? Fill out the form below and our team will contact you within 24 hours to discuss your project and provide a free, no-obligation estimate.
             </p>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-100">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Full Name */}
               <div>
-                <label htmlFor="fullName" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="fullName" className="block text-base font-semibold text-gray-700 mb-2">
                   Full Name *
                 </label>
                 <input
@@ -231,7 +252,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors text-base min-h-[44px] ${
                     errors.fullName ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-[#0066CC]'
                   }`}
                   placeholder="Enter your full name"
@@ -247,7 +268,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
               {/* Email and Phone Row */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-base font-semibold text-gray-700 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -256,7 +277,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors text-base min-h-[44px] ${
                       errors.email ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-[#0066CC]'
                     }`}
                     placeholder="your.email@example.com"
@@ -270,7 +291,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-base font-semibold text-gray-700 mb-2">
                     Phone Number *
                   </label>
                   <input
@@ -279,7 +300,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors text-base min-h-[44px] ${
                       errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-[#0066CC]'
                     }`}
                     placeholder="(555) 123-4567"
@@ -295,7 +316,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
 
               {/* Service Interest */}
               <div>
-                <label htmlFor="serviceInterest" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="serviceInterest" className="block text-base font-semibold text-gray-700 mb-2">
                   Service of Interest *
                 </label>
                 <select
@@ -303,7 +324,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                   name="serviceInterest"
                   value={formData.serviceInterest}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors text-base min-h-[44px] ${
                     errors.serviceInterest ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-[#0066CC]'
                   }`}
                 >
@@ -324,7 +345,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
 
               {/* Property Address */}
               <div>
-                <label htmlFor="propertyAddress" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="propertyAddress" className="block text-base font-semibold text-gray-700 mb-2">
                   Property Address *
                 </label>
                 <input
@@ -333,7 +354,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                   name="propertyAddress"
                   value={formData.propertyAddress}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors text-base min-h-[44px] ${
                     errors.propertyAddress ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-[#0066CC]'
                   }`}
                   placeholder="123 Main Street, City, State, ZIP"
@@ -348,7 +369,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
 
               {/* Project Description */}
               <div>
-                <label htmlFor="projectDescription" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="projectDescription" className="block text-base font-semibold text-gray-700 mb-2">
                   Project Description *
                 </label>
                 <textarea
@@ -357,7 +378,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                   value={formData.projectDescription}
                   onChange={handleInputChange}
                   rows={4}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors resize-none ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 transition-colors resize-none text-base ${
                     errors.projectDescription ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-[#0066CC]'
                   }`}
                   placeholder="Please describe your project, including the size of the area, current condition of the floor, and any specific requirements or preferences..."
@@ -380,7 +401,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                     onChange={handleRecaptchaChange}
                     className="w-5 h-5 text-[#0066CC] border-gray-300 rounded focus:ring-[#0066CC]"
                   />
-                  <label htmlFor="recaptcha" className="text-sm text-gray-700">
+                  <label htmlFor="recaptcha" className="text-base text-gray-700">
                     I'm not a robot
                   </label>
                   <div className="ml-auto text-xs text-gray-500">reCAPTCHA</div>
@@ -398,7 +419,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 px-8 rounded-lg font-bold text-lg transition-all duration-300 ${
+                  className={`w-full py-3 md:py-4 px-6 md:px-8 rounded-lg font-bold text-base md:text-lg transition-all duration-300 min-h-[44px] ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
                       : 'bg-gradient-to-r from-[#0066CC] to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 hover:shadow-2xl'
@@ -409,18 +430,18 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
               </div>
 
               {/* Submit Error */}
-              {errors.submit && (
+              {submitError && (
                 <p className="text-sm text-red-600 flex items-center justify-center">
                   <AlertCircle className="w-4 h-4 mr-1" />
-                  {errors.submit}
+                  {submitError}
                 </p>
               )}
             </form>
           </div>
 
           {/* Privacy Policy */}
-          <div className="mt-8 text-center text-sm text-gray-600">
-            <p>
+          <div className="mt-6 md:mt-8 text-center text-sm text-gray-600">
+            <p className="leading-relaxed">
               By submitting this form, you agree to our{' '}
               <a href="#" className="text-[#0066CC] hover:underline">Privacy Policy</a>{' '}
               and consent to being contacted by TERRA NUOVA regarding your flooring project. 
@@ -429,8 +450,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
           </div>
 
           {/* Logo at bottom */}
-          <div className="flex justify-center mt-16">
-            <div className="w-40 h-40">
+          <div className="flex justify-center mt-12 md:mt-16">
+            <div className="w-32 h-32 md:w-40 md:h-40">
               <img 
                 src="/images/logo/terra-nuova-logo.png" 
                 alt="TERRA NUOVA Logo"

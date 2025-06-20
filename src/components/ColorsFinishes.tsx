@@ -192,19 +192,22 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <div className="flex items-center space-x-3">
+          <button
+            onClick={onBack}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
             <img 
               src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
-            <h1 className="text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
-          </div>
+            <h1 className="text-xl md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
+          </button>
           <button
             onClick={onBack}
-            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors"
+            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors min-h-[44px] px-3"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-medium">Back to Home</span>
@@ -213,15 +216,15 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-6">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 md:px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-r from-[#0066CC] to-red-600 rounded-full flex items-center justify-center">
-              <Palette className="w-8 h-8 text-white" />
+          <div className="flex items-center justify-center space-x-4 mb-4 md:mb-6">
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-[#0066CC] to-red-600 rounded-full flex items-center justify-center">
+              <Palette className="w-6 h-6 md:w-8 md:h-8 text-white" />
             </div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-black text-[#0066CC] mb-6">Colors & Finishes</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mb-4 md:mb-6">Colors & Finishes</h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Explore our comprehensive collection of premium floor coating colors and finishes. 
             From natural earth tones to vibrant metallics, find the perfect color to transform your space.
           </p>
@@ -229,18 +232,18 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
       </section>
 
       {/* Controls Section */}
-      <section className="pb-8 px-6">
+      <section className="pb-6 md:pb-8 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 items-center justify-between">
             {/* Search Bar */}
-            <div className="relative flex-1 max-w-md">
+            <div className="relative flex-1 max-w-md w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search colors..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] transition-colors"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] transition-colors text-base min-h-[44px]"
               />
             </div>
 
@@ -248,7 +251,7 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
             <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded-md transition-colors ${
+                className={`p-2 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   viewMode === 'grid' 
                     ? 'bg-white text-[#0066CC] shadow-sm' 
                     : 'text-gray-600 hover:text-[#0066CC]'
@@ -258,7 +261,7 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded-md transition-colors ${
+                className={`p-2 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   viewMode === 'list' 
                     ? 'bg-white text-[#0066CC] shadow-sm' 
                     : 'text-gray-600 hover:text-[#0066CC]'
@@ -272,14 +275,14 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
       </section>
 
       {/* Category Tabs */}
-      <section className="pb-8 px-6">
+      <section className="pb-6 md:pb-8 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 justify-center">
             {colorCategories.map((category) => (
               <button
                 key={category.name}
                 onClick={() => setSelectedCategory(category.name)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base min-h-[44px] ${
                   selectedCategory === category.name
                     ? 'bg-gradient-to-r from-[#0066CC] to-red-600 text-white shadow-lg transform scale-105'
                     : 'bg-white text-gray-600 hover:text-[#0066CC] hover:bg-gray-50 border border-gray-200'
@@ -293,19 +296,19 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
       </section>
 
       {/* Color Swatches Grid */}
-      <section className="pb-20 px-6">
+      <section className="pb-16 md:pb-20 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Category Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0066CC] mb-4">{selectedCategory} Collection</h2>
-            <p className="text-gray-600">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0066CC] mb-3 md:mb-4">{selectedCategory} Collection</h2>
+            <p className="text-gray-600 text-base">
               {filteredColors.length} color{filteredColors.length !== 1 ? 's' : ''} available • Click any color for full-screen preview
             </p>
           </div>
 
           {/* Color Grid */}
           {filteredColors.length > 0 ? (
-            <div className={`grid gap-8 ${
+            <div className={`grid gap-4 md:gap-6 lg:gap-8 ${
               viewMode === 'grid' 
                 ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5' 
                 : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
@@ -321,7 +324,7 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
                   onClick={() => handleColorClick(color, index)}
                 >
                   <div className={`relative overflow-hidden rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 ${
-                    viewMode === 'list' ? 'w-24 h-24 flex-shrink-0' : 'aspect-square'
+                    viewMode === 'list' ? 'w-20 h-20 md:w-24 md:h-24 flex-shrink-0' : 'aspect-square'
                   }`}>
                     <img
                       src={color.imagePath}
@@ -333,15 +336,15 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
                     
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1">
-                        <span className="text-sm font-medium text-gray-900">View Full Screen</span>
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-2 md:px-3 py-1">
+                        <span className="text-xs md:text-sm font-medium text-gray-900">View Full Screen</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className={viewMode === 'list' ? 'flex-1' : 'mt-4 text-center'}>
+                  <div className={viewMode === 'list' ? 'flex-1' : 'mt-3 md:mt-4 text-center'}>
                     <h3 className={`font-semibold text-gray-900 group-hover:text-[#0066CC] transition-colors ${
-                      viewMode === 'list' ? 'text-lg' : 'text-sm'
+                      viewMode === 'list' ? 'text-base md:text-lg' : 'text-sm md:text-base'
                     }`}>
                       {color.name}
                     </h3>
@@ -353,11 +356,11 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-gray-400" />
+            <div className="text-center py-12 md:py-16">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-6 h-6 md:w-8 md:h-8 text-gray-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No colors found</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">No colors found</h3>
               <p className="text-gray-600">Try adjusting your search terms or select a different category.</p>
             </div>
           )}
@@ -365,15 +368,15 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-[#0066CC] to-red-600">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-r from-[#0066CC] to-red-600">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-black mb-6">Found Your Perfect Color?</h2>
-          <p className="text-xl mb-8 opacity-90">
+          <h2 className="text-3xl md:text-4xl font-black mb-4 md:mb-6">Found Your Perfect Color?</h2>
+          <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">
             Get a free estimate and see how your chosen color will transform your space.
           </p>
           <button 
             onClick={onContactRedirect}
-            className="bg-white text-[#0066CC] font-bold py-4 px-8 rounded-full text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            className="bg-white text-[#0066CC] font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px]"
           >
             Get Free Estimate
           </button>
