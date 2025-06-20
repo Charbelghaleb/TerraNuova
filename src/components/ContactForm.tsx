@@ -128,55 +128,62 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
     setSubmitError('');
 
     try {
-      // Submit to Supabase
-      const submissionData: Omit<ContactSubmission, 'id' | 'submitted_at' | 'created_at' | 'updated_at'> = {
-        full_name: formData.fullName,
+      // Primary submission to Make.com webhook
+      const webhookPayload = {
+        fullName: formData.fullName,
         email: formData.email,
         phone: formData.phone,
-        service_interest: formData.serviceInterest,
-        project_description: formData.projectDescription,
-        property_address: formData.propertyAddress,
-        status: 'new'
+        serviceInterest: formData.serviceInterest,
+        projectDescription: formData.projectDescription,
+        propertyAddress: formData.propertyAddress,
+        submittedAt: new Date().toISOString(),
+        source: 'Terra Nuova Website'
       };
 
-      const result = await submitContactForm(submissionData);
+      const webhookResponse = await fetch('https://hook.us2.make.com/74rb5pg78e6sujpu2tiyawjcycodsiwt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(webhookPayload)
+      });
 
-      if (result.success) {
+      // Check if webhook submission was successful
+      if (webhookResponse.ok) {
         setIsSubmitted(true);
         
-        // Also send to Make.com webhook as backup
+        // Also save to Supabase as backup (if configured)
         try {
-          await fetch('https://hook.us2.make.com/5mly6kt37xfjw23rc2lsed1vp6qylusv', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              fullName: formData.fullName,
-              email: formData.email,
-              phone: formData.phone,
-              serviceInterest: formData.serviceInterest,
-              projectDescription: formData.projectDescription,
-              propertyAddress: formData.propertyAddress,
-              submittedAt: new Date().toISOString(),
-              source: 'Terra Nuova Website',
-              supabaseId: result.data?.id
-            })
-          });
-        } catch (webhookError) {
-          // Don't fail the form submission if webhook fails
-          console.warn('Webhook submission failed:', webhookError);
+          const submissionData: Omit<ContactSubmission, 'id' | 'submitted_at' | 'created_at' | 'updated_at'> = {
+            full_name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            service_interest: formData.serviceInterest,
+            project_description: formData.projectDescription,
+            property_address: formData.propertyAddress,
+            status: 'new'
+          };
+
+          await submitContactForm(submissionData);
+        } catch (supabaseError) {
+          // Don't fail the form submission if Supabase backup fails
+          console.warn('Supabase backup failed:', supabaseError);
         }
+      } else {
+        // If webhook fails, check the response status
+        const responseText = await webhookResponse.text();
+        console.error('Webhook error:', webhookResponse.status, responseText);
+        throw new Error(`Webhook submission failed with status ${webhookResponse.status}`);
       }
     } catch (error) {
       console.error('Form submission error:', error);
       
-      // Check if it's a Supabase connection error
+      // Provide specific error messages based on the error type
       if (error instanceof Error) {
-        if (error.message.includes('Missing Supabase environment variables')) {
-          setSubmitError('Configuration error. Please contact support at (718) 200-4133.');
-        } else if (error.message.includes('Failed to submit form')) {
-          setSubmitError('There was an error submitting your form. Please try again or call us directly at (718) 200-4133.');
+        if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+          setSubmitError('Network error. Please check your internet connection and try again, or call us directly at (718) 200-4133.');
+        } else if (error.message.includes('Webhook submission failed')) {
+          setSubmitError('There was an error processing your request. Please try again or call us directly at (718) 200-4133.');
         } else {
           setSubmitError('An unexpected error occurred. Please try again or call us directly at (718) 200-4133.');
         }
