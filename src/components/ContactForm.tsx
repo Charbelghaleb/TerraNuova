@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check, AlertCircle, ArrowLeft } from 'lucide-react';
+import { submitContactForm, type ContactSubmission } from '../lib/supabase';
 
 interface ContactFormProps {
   onBack: () => void;
@@ -127,32 +128,61 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
     setSubmitError('');
 
     try {
-      // Submit to Make.com webhook
-      const response = await fetch('https://hook.us2.make.com/5mly6kt37xfjw23rc2lsed1vp6qylusv', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          serviceInterest: formData.serviceInterest,
-          projectDescription: formData.projectDescription,
-          propertyAddress: formData.propertyAddress,
-          submittedAt: new Date().toISOString(),
-          source: 'Terra Nuova Website'
-        })
-      });
+      // Submit to Supabase
+      const submissionData: Omit<ContactSubmission, 'id' | 'submitted_at' | 'created_at' | 'updated_at'> = {
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        service_interest: formData.serviceInterest,
+        project_description: formData.projectDescription,
+        property_address: formData.propertyAddress,
+        status: 'new'
+      };
 
-      if (response.ok) {
+      const result = await submitContactForm(submissionData);
+
+      if (result.success) {
         setIsSubmitted(true);
-      } else {
-        throw new Error('Failed to submit form');
+        
+        // Also send to Make.com webhook as backup
+        try {
+          await fetch('https://hook.us2.make.com/5mly6kt37xfjw23rc2lsed1vp6qylusv', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              fullName: formData.fullName,
+              email: formData.email,
+              phone: formData.phone,
+              serviceInterest: formData.serviceInterest,
+              projectDescription: formData.projectDescription,
+              propertyAddress: formData.propertyAddress,
+              submittedAt: new Date().toISOString(),
+              source: 'Terra Nuova Website',
+              supabaseId: result.data?.id
+            })
+          });
+        } catch (webhookError) {
+          // Don't fail the form submission if webhook fails
+          console.warn('Webhook submission failed:', webhookError);
+        }
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      setSubmitError('There was an error submitting your form. Please try again or call us directly at (718) 200-4133.');
+      
+      // Check if it's a Supabase connection error
+      if (error instanceof Error) {
+        if (error.message.includes('Missing Supabase environment variables')) {
+          setSubmitError('Configuration error. Please contact support at (718) 200-4133.');
+        } else if (error.message.includes('Failed to submit form')) {
+          setSubmitError('There was an error submitting your form. Please try again or call us directly at (718) 200-4133.');
+        } else {
+          setSubmitError('An unexpected error occurred. Please try again or call us directly at (718) 200-4133.');
+        }
+      } else {
+        setSubmitError('There was an error submitting your form. Please try again or call us directly at (718) 200-4133.');
+      }
     } finally {
       setIsSubmitting(false);
     }
