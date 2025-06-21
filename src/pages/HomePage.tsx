@@ -4,8 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet-async';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 function HomePage() {
+  // Ensure scroll to top on page load/navigation
+  useScrollToTop();
+  
   const [scrollY, setScrollY] = useState(0);
   const [visibleElements, setVisibleElements] = useState(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);

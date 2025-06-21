@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Check, AlertCircle, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { submitContactForm, type ContactSubmission } from '../lib/supabase';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 interface ContactFormProps {
   onBack: () => void;
@@ -20,6 +22,9 @@ interface FormErrors {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
+  // Ensure scroll to top on component mount
+  useScrollToTop();
+  
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
@@ -152,6 +157,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
       if (webhookResponse.ok) {
         setIsSubmitted(true);
         
+        // Scroll to top when showing success message
+        window.scrollTo(0, 0);
+        
         // Also save to Supabase as backup (if configured)
         try {
           const submissionData: Omit<ContactSubmission, 'id' | 'submitted_at' | 'created_at' | 'updated_at'> = {
@@ -216,12 +224,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
           <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
             Your request has been submitted successfully. Our team will contact you within 24 hours to discuss your project and schedule a free estimate.
           </p>
-          <button
-            onClick={onBack}
-            className="bg-gradient-to-r from-[#0066CC] to-purple-600 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px]"
+          <Link
+            to="/"
+            className="bg-gradient-to-r from-[#0066CC] to-purple-600 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px] inline-block"
           >
             Return to Home
-          </button>
+          </Link>
           
           {/* Logo at bottom */}
           <div className="flex justify-center mt-12 md:mt-16">
@@ -243,8 +251,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <button
-            onClick={onBack}
+          <Link
+            to="/"
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
             <img 
@@ -253,14 +261,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
               className="w-8 h-8 object-contain"
             />
             <h1 className="text-xl md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
-          </button>
-          <button
-            onClick={onBack}
+          </Link>
+          <Link
+            to="/"
             className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors min-h-[44px] px-3"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-medium">Back to Home</span>
-          </button>
+          </Link>
         </div>
       </nav>
 

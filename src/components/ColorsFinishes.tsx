@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Palette, Search, Grid, List } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ColorPreview from './ColorPreview';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 interface ColorsFinishesProps {
   onBack: () => void;
@@ -18,6 +20,9 @@ interface ColorCategory {
 }
 
 const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedirect }) => {
+  // Ensure scroll to top on component mount
+  useScrollToTop();
+  
   const [selectedCategory, setSelectedCategory] = useState<string>('Evolution');
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -194,8 +199,8 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <button
-            onClick={onBack}
+          <Link
+            to="/"
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
             <img 
@@ -204,14 +209,14 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
               className="w-8 h-8 object-contain"
             />
             <h1 className="text-xl md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
-          </button>
-          <button
-            onClick={onBack}
+          </Link>
+          <Link
+            to="/"
             className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors min-h-[44px] px-3"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-medium">Back to Home</span>
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -374,12 +379,12 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
           <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">
             Get a free estimate and see how your chosen color will transform your space.
           </p>
-          <button 
-            onClick={onContactRedirect}
-            className="bg-white text-[#0066CC] font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px]"
+          <Link 
+            to="/contact"
+            className="bg-white text-[#0066CC] font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px] inline-block"
           >
             Get Free Estimate
-          </button>
+          </Link>
         </div>
       </section>
 
