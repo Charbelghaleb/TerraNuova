@@ -15,11 +15,11 @@ const ChipSystemPage: React.FC = () => {
   ];
 
   const applications = [
-    "Garages throughout New York & Tri-State area",
-    "Commercial showrooms", 
-    "Retail spaces",
-    "Industrial warehouses",
-    "Educational facilities"
+    "Garages",
+    "Showrooms", 
+    "Commercial spaces",
+    "Retail floors",
+    "Warehouses"
   ];
 
   const images = [
@@ -31,8 +31,8 @@ const ChipSystemPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Chip System Flooring New York & Tri-State | Terra Nuova</title>
-        <meta name="description" content="Durable chip system epoxy flooring for garages, basements & more throughout New York and the Tri-State area. Stylish flakes and long-lasting finishes installed by Terra Nuova." />
+        <title>Chip System Flooring | Terra Nuova</title>
+        <meta name="description" content="Durable chip system epoxy flooring for garages, basements & more. Stylish flakes and long-lasting finishes. Installed across NYC." />
       </Helmet>
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 relative">
@@ -55,9 +55,9 @@ const ChipSystemPage: React.FC = () => {
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-[#0066CC] to-blue-400 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6 md:mb-8">
                   <Sparkles className="w-8 h-8 md:w-10 md:h-10 text-white" />
                 </div>
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mb-4 md:mb-6 leading-tight">Chip System Flooring</h1>
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mb-4 md:mb-6 leading-tight">Chip System</h1>
                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                  Built with three layers for lasting strength, our chip system is a popular option for garage floors, schools, locker rooms, and commercial showrooms throughout New York and the Tri-State area. This system is made of 99.5% polyurea solids to give it superior durability, including chemical, abrasion, and UV resistance. Best of all, its vinyl chips can be custom-blended into nearly any color you'd like!
+                  Built with three layers for lasting strength, our chip system is a popular option for garage floors, schools, locker rooms, and commercial showrooms. This system is made of 99.5% polyurea solids to give it superior durability, including chemical, abrasion, and UV resistance. Best of all, its vinyl chips can be custom-blended into nearly any color you'd like!
                 </p>
               </div>
               
@@ -66,7 +66,7 @@ const ChipSystemPage: React.FC = () => {
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-lg w-full">
                   <img 
                     src="/images/chip-system/process-diagram.png"
-                    alt="Chip System Process Diagram for New York Tri-State installations"
+                    alt="Chip System Process Diagram"
                     className="w-full h-auto object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
@@ -79,14 +79,14 @@ const ChipSystemPage: React.FC = () => {
         {/* Project Gallery */}
         <section className="py-16 md:py-20 px-4 md:px-6 bg-white/80 backdrop-blur-sm relative z-10">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-center text-[#0066CC] mb-12 md:mb-16">Project Gallery - New York & Tri-State Area</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-center text-[#0066CC] mb-12 md:mb-16">Project Gallery</h2>
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {images.map((src, i) => (
                 <div key={i} className="group">
                   <div className="relative overflow-hidden rounded-2xl shadow-lg">
                     <img 
                       src={src}
-                      alt={`Chip System project ${i + 1} in New York Tri-State area`}
+                      alt={`Chip System project ${i + 1}`}
                       className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -134,7 +134,7 @@ const ChipSystemPage: React.FC = () => {
         <section className="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-r from-[#0066CC] to-red-600 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-black mb-4 md:mb-6">Ready to Transform Your Space?</h2>
-            <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">Get a free estimate for your chip system project throughout New York and the Tri-State area.</p>
+            <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">Get a free estimate for your chip system project today.</p>
             <Link 
               to="/contact"
               className="bg-white text-[#0066CC] font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg premium-button-hover min-h-[44px] inline-block"

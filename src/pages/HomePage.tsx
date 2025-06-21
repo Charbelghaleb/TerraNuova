@@ -100,7 +100,7 @@ function HomePage() {
       icon: Sparkles, 
       title: "Chip System", 
       shortDesc: "Durable & Decorative",
-      desc: "Built with three layers for lasting strength, our chip system is a popular option for garage floors, schools, locker rooms, and commercial showrooms throughout New York and the Tri-State area. This system is made of 99.5% polyurea solids to give it superior durability, including chemical, abrasion, and UV resistance. Best of all, its vinyl chips can be custom-blended into nearly any color you'd like!", 
+      desc: "Built with three layers for lasting strength, our chip system is a popular option for garage floors, schools, locker rooms, and commercial showrooms. This system is made of 99.5% polyurea solids to give it superior durability, including chemical, abrasion, and UV resistance. Best of all, its vinyl chips can be custom-blended into nearly any color you'd like!", 
       gradient: "from-[#0066CC] to-blue-400",
       url: "/services/chip-system"
     },
@@ -109,7 +109,7 @@ function HomePage() {
       icon: Shield, 
       title: "Quartz System", 
       shortDesc: "Maximum Strength",
-      desc: "Our quartz system is similar to the chip system but has two additional layers (five in total) for added strength. Utilizing both a basecoat and topcoat of polyaspartic floor coating, our system has extreme adhesion, flexibility in changing temperatures, and chemical resistance - perfect for New York's varying climate conditions.", 
+      desc: "Our quartz system is similar to the chip system but has two additional layers (five in total) for added strength. Utilizing both a basecoat and topcoat of polyaspartic floor coating, our system has extreme adhesion, flexibility in changing temperatures, and chemical resistance.", 
       gradient: "from-slate-600 to-slate-400",
       url: "/services/quartz-system"
     },
@@ -118,7 +118,7 @@ function HomePage() {
       icon: Palette, 
       title: "Metallic System", 
       shortDesc: "Stunning Finish",
-      desc: `Our floor finishing system utilizes natural pigments to create a 3D marbleized look with a bold pop of color. The eye-catching color movement and high gloss make this flooring system particularly popular for showrooms throughout the Tri-State area—or any space requiring that "wow" factor. And if you prefer a subtler appearance, we can swap the glossy topcoat with a high-quality matte one.`, 
+      desc: `Our floor finishing system utilizes natural pigments to create a 3D marbleized look with a bold pop of color. The eye-catching color movement and high gloss make this flooring system particularly popular for showrooms—or any space requiring that "wow" factor. And if you prefer a subtler appearance, we can swap the glossy topcoat with a high-quality matte one.`, 
       gradient: "from-red-600 to-red-500",
       url: "/services/metallic-system"
     },
@@ -127,7 +127,7 @@ function HomePage() {
       icon: Zap, 
       title: "Solid Color Polyurea", 
       shortDesc: "Weather Resistant",
-      desc: "Our solid color polyurea system withstands freeze-thaw cycles without cracking or splitting - essential for New York and Tri-State area weather conditions. It also has UV and chemical resistance.", 
+      desc: "Our solid color polyurea system withstands freeze-thaw cycles without cracking or splitting. It also has UV and chemical resistance.", 
       gradient: "from-green-600 to-emerald-500",
       url: "/services/solid-color-polyurea"
     },
@@ -136,7 +136,7 @@ function HomePage() {
       icon: Droplets, 
       title: "Solid Color Epoxy", 
       shortDesc: "Cost Effective",
-      desc: "Like the rest of our concrete coatings, our solid color epoxy system has been specially engineered by experienced floor specialists. It fixes the problems common to low-quality epoxies—providing superior impact resistance and dependability at an affordable price for businesses across New York and the Tri-State area.", 
+      desc: "Like the rest of our concrete coatings, our solid color epoxy system has been specially engineered by experienced floor specialists. It fixes the problems common to low-quality epoxies—providing superior impact resistance and dependability at an affordable price.", 
       gradient: "from-[#0066CC] to-cyan-500",
       url: "/services/solid-color-epoxy"
     },
@@ -145,7 +145,7 @@ function HomePage() {
       icon: Factory, 
       title: "Polyurea Shop Floor System", 
       shortDesc: "Industrial Grade",
-      desc: "The polyurea shop floor system offers added strength and durability. It also features a textured surface and moisture resistance, making it perfect for the harsh conditions of any workshop or factory throughout New York and the Tri-State area.", 
+      desc: "The polyurea shop floor system offers added strength and durability. It also features a textured surface and moisture resistance, making it perfect for the harsh conditions of any workshop or factory.", 
       gradient: "from-indigo-600 to-blue-500",
       url: "/services/polyurea-shop-floor-system"
     },
@@ -154,7 +154,7 @@ function HomePage() {
       icon: CornerDownRight, 
       title: "Formcove System", 
       shortDesc: "Seamless Transition",
-      desc: "Protect the vulnerable spot between your floors and walls with a Formcove system. Our unique cove base system takes one-third of the time of a standard installation and uses only half of the materials—saving you time and money on projects across the Tri-State area.", 
+      desc: "Protect the vulnerable spot between your floors and walls with a Formcove system. Our unique cove base system takes one-third of the time of a standard installation and uses only half of the materials—saving you time and money.", 
       gradient: "from-orange-600 to-red-500",
       url: "/services/formcove-system"
     }
@@ -163,8 +163,8 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Terra Nuova | New York & Tri-State Epoxy Floor Coatings</title>
-        <meta name="description" content="Terra Nuova installs high-performance epoxy and polyurea flooring across New York and the Tri-State area. Residential, commercial & industrial coatings. Free estimates." />
+        <title>Terra Nuova | NYC Epoxy & Polyurea Floor Coatings</title>
+        <meta name="description" content="Terra Nuova installs high-performance epoxy and polyurea flooring across NYC. Residential, commercial & industrial coatings. Free estimates." />
         
         {/* LocalBusiness Schema Markup */}
         <script type="application/ld+json">
@@ -190,7 +190,7 @@ function HomePage() {
             },
             "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-17:00",
             "priceRange": "$$",
-            "description": "Terra Nuova installs professional epoxy and polyurea floor coatings for residential, commercial, and industrial properties across New York and the Tri-State area. Free estimates available.",
+            "description": "Terra Nuova installs professional epoxy and polyurea floor coatings for residential, commercial, and industrial properties across NYC. Free estimates available.",
             "areaServed": [
               {
                 "@type": "Place",
@@ -252,7 +252,7 @@ function HomePage() {
             
             <div className="mt-8 md:mt-12 scroll-reveal" id="hero-subtitle" style={getScrollAnimationStyle('hero-subtitle', 'fadeIn', 3)}>
               <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 font-medium">
-                We have the <span className="text-[#0066CC] font-bold">solution</span> for New York and the Tri-State area.
+                We have the <span className="text-[#0066CC] font-bold">solution.</span>
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-[#0066CC] to-red-500 mx-auto mt-6 rounded-full"></div>
             </div>
@@ -341,7 +341,7 @@ function HomePage() {
                   <X className="w-6 h-6 md:w-8 md:h-8 text-red-500" />
                   <h3 className="text-xl md:text-3xl font-bold text-red-500">Either Cracked or Stained</h3>
                 </div>
-                <p className="text-gray-600 text-base md:text-lg font-medium">Damaged, unsightly floors that hurt your business image across New York and the Tri-State area</p>
+                <p className="text-gray-600 text-base md:text-lg font-medium">Damaged, unsightly floors that hurt your business image</p>
               </div>
             </div>
 
@@ -375,7 +375,7 @@ function HomePage() {
                   <Check className="w-6 h-6 md:w-8 md:h-8 text-green-500" />
                   <h3 className="text-xl md:text-3xl font-bold text-[#0066CC]">Stunning and Seamless</h3>
                 </div>
-                <p className="text-gray-600 text-base md:text-lg font-medium">Professional epoxy finish that transforms your space throughout the Tri-State area</p>
+                <p className="text-gray-600 text-base md:text-lg font-medium">Professional epoxy finish that transforms your space</p>
               </div>
             </div>
 
@@ -402,7 +402,7 @@ function HomePage() {
                 id="solution-description"
                 style={getScrollAnimationStyle('solution-description', 'fadeIn', 5)}
               >
-                Durable, stunning, and seamless floors that enhance your business image and last for years throughout New York and the Tri-State area
+                Durable, stunning, and seamless floors that enhance your business image and last for years
               </p>
             </div>
           </div>
@@ -425,7 +425,7 @@ function HomePage() {
                 >
                   <img 
                     src={src}
-                    alt={`Epoxy floor transformation ${i + 1} in New York Tri-State area`}
+                    alt={`Epoxy floor transformation ${i + 1}`}
                     className="w-full h-40 md:h-48 object-cover rounded-lg shadow-lg border border-[#0066CC]/10"
                   />
                 </div>
