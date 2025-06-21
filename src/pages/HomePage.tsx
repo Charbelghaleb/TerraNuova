@@ -191,10 +191,20 @@ function HomePage() {
             "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-17:00",
             "priceRange": "$$",
             "description": "Terra Nuova installs professional epoxy and polyurea floor coatings for residential, commercial, and industrial properties across NYC. Free estimates available.",
-            "areaServed": {
-              "@type": "Place",
-              "name": "New York City"
-            }
+            "areaServed": [
+              {
+                "@type": "Place",
+                "name": "New York"
+              },
+              {
+                "@type": "Place",
+                "name": "New Jersey"
+              },
+              {
+                "@type": "Place",
+                "name": "Connecticut"
+              }
+            ]
           })}
         </script>
       </Helmet>
