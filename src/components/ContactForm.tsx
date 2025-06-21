@@ -137,7 +137,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
         projectDescription: formData.projectDescription,
         propertyAddress: formData.propertyAddress,
         submittedAt: new Date().toISOString(),
-        source: 'Terra Nuova Website'
+        source: 'Terra Nuova Website - New York & Tri-State Area'
       };
 
       const webhookResponse = await fetch('https://hook.us2.make.com/74rb5pg78e6sujpu2tiyawjcycodsiwt', {
@@ -214,7 +214,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
           </div>
           <h1 className="text-3xl md:text-4xl font-black text-[#0066CC] mb-4 md:mb-6">Thank You!</h1>
           <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
-            Your request has been submitted successfully. Our team will contact you within 24 hours to discuss your project and schedule a free estimate.
+            Your request has been submitted successfully. Our team will contact you within 24 hours to discuss your project and schedule a free estimate for your New York or Tri-State area location.
           </p>
           <button
             onClick={onBack}
@@ -271,7 +271,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
           <div className="text-center mb-8 md:mb-12">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mb-4 md:mb-6">Get Your Free Estimate</h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Ready to transform your space? Fill out the form below and our team will contact you within 24 hours to discuss your project and provide a free, no-obligation estimate.
+              Ready to transform your space in New York or the Tri-State area? Fill out the form below and our team will contact you within 24 hours to discuss your project and provide a free, no-obligation estimate.
             </p>
           </div>
 
@@ -383,7 +383,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
               {/* Property Address */}
               <div>
                 <label htmlFor="propertyAddress" className="block text-base font-semibold text-gray-700 mb-2">
-                  Property Address *
+                  Property Address (New York & Tri-State Area) *
                 </label>
                 <input
                   type="text"
@@ -481,7 +481,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack }) => {
             <p className="leading-relaxed">
               By submitting this form, you agree to our{' '}
               <a href="#" className="text-[#0066CC] hover:underline">Privacy Policy</a>{' '}
-              and consent to being contacted by TERRA NUOVA regarding your flooring project. 
+              and consent to being contacted by TERRA NUOVA regarding your flooring project in New York and the Tri-State area. 
               We respect your privacy and will never share your information with third parties.
             </p>
           </div>

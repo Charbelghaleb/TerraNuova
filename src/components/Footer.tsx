@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
               <h3 className="text-xl md:text-2xl font-bold text-white tracking-wider">TERRA NUOVA</h3>
             </Link>
             <p className="text-gray-300 leading-relaxed text-base">
-              Professional industrial floor coating solutions for businesses across Staten Island and the greater New York area.
+              Professional industrial floor coating solutions for businesses across New York and the Tri-State area. Serving residential, commercial, and industrial properties with premium epoxy and polyurea flooring systems.
             </p>
           </div>
 
@@ -50,6 +50,7 @@ const Footer: React.FC = () => {
                 <div>
                   <p className="text-gray-300 font-medium text-base">166 Industrial Loop</p>
                   <p className="text-gray-300 text-base">Staten Island, NY 10309</p>
+                  <p className="text-gray-300 text-sm mt-1">Serving New York & Tri-State Area</p>
                 </div>
               </div>
 
@@ -68,14 +69,22 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Quick Links</h4>
+            <h4 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Service Areas</h4>
+            <div className="space-y-3 mb-6">
+              <div className="text-gray-300 text-base">
+                <p className="font-medium text-white mb-2">New York</p>
+                <p className="text-sm">Manhattan • Brooklyn • Queens • Bronx • Staten Island</p>
+              </div>
+              <div className="text-gray-300 text-base">
+                <p className="font-medium text-white mb-2">New Jersey</p>
+                <p className="text-sm">Northern & Central NJ</p>
+              </div>
+              <div className="text-gray-300 text-base">
+                <p className="font-medium text-white mb-2">Connecticut</p>
+                <p className="text-sm">Fairfield County</p>
+              </div>
+            </div>
             <div className="space-y-3">
-              <a 
-                href="/#services"
-                className="block text-gray-300 hover:text-white transition-colors font-medium text-base min-h-[44px] flex items-center justify-center md:justify-start"
-              >
-                Our Services
-              </a>
               <Link 
                 to="/colors-finishes"
                 className="block text-gray-300 hover:text-white transition-colors font-medium text-base min-h-[44px] flex items-center justify-center md:justify-start"
@@ -105,7 +114,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright */}
           <div className="text-gray-400 text-sm text-center md:text-left">
-            © 2025 TERRA NUOVA Industrial Floor Coatings. All rights reserved.
+            © 2025 TERRA NUOVA Industrial Floor Coatings. All rights reserved. Serving New York and the Tri-State area.
           </div>
         </div>
 
