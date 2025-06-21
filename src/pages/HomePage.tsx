@@ -165,6 +165,38 @@ function HomePage() {
       <Helmet>
         <title>Terra Nuova | NYC Epoxy & Polyurea Floor Coatings</title>
         <meta name="description" content="Terra Nuova installs high-performance epoxy and polyurea flooring across NYC. Residential, commercial & industrial coatings. Free estimates." />
+        
+        {/* LocalBusiness Schema Markup */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Terra Nuova",
+            "image": "https://terranuova.us/images/logo/terra-nuova-logo.png",
+            "url": "https://terranuova.us",
+            "telephone": "+17182004133",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "166 Industrial Loop",
+              "addressLocality": "Staten Island",
+              "addressRegion": "NY",
+              "postalCode": "10309",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.519,
+              "longitude": -74.220
+            },
+            "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-17:00",
+            "priceRange": "$$",
+            "description": "Terra Nuova installs professional epoxy and polyurea floor coatings for residential, commercial, and industrial properties across NYC. Free estimates available.",
+            "areaServed": {
+              "@type": "Place",
+              "name": "New York City"
+            }
+          })}
+        </script>
       </Helmet>
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-x-hidden relative">
