@@ -167,7 +167,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Terra Nuova | Epoxy Floor Coatings in NYC</title>
+        <title>Terra Nuova: Concrete Floor Coatings in NYC</title>
         <meta name="description" content="Professional epoxy floor coatings in NYC by Terra Nuova. Durable, stylish floors for garages, basements, shops & more. Free estimates available." />
         
         {/* LocalBusiness Schema Markup */}
