@@ -390,7 +390,7 @@ function HomePage() {
                 id="solution-title-1"
                 style={getScrollAnimationStyle('solution-title-1', 'slideUp', 3)}
               >
-                Transform Your Space with
+                The art of
               </h3>
               <h3 
                 className="text-2xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 scroll-reveal"
