@@ -386,16 +386,9 @@ function HomePage() {
             {/* Solution Text */}
             <div className="text-center">
               <h3 
-                className="text-2xl md:text-4xl lg:text-5xl font-black text-[#0066CC] mb-4 md:mb-6 scroll-reveal"
-                id="solution-title-1"
-                style={getScrollAnimationStyle('solution-title-1', 'slideUp', 3)}
-              >
-                Discover
-              </h3>
-              <h3 
                 className="text-2xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 scroll-reveal"
-                id="solution-title-2"
-                style={getScrollAnimationStyle('solution-title-2', 'slideUp', 4)}
+                id="solution-title"
+                style={getScrollAnimationStyle('solution-title', 'slideUp', 3)}
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066CC] to-red-600">
                   The Art Of Professional Epoxy Coating
@@ -404,7 +397,7 @@ function HomePage() {
               <p 
                 className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl mx-auto scroll-reveal"
                 id="solution-description"
-                style={getScrollAnimationStyle('solution-description', 'fadeIn', 5)}
+                style={getScrollAnimationStyle('solution-description', 'fadeIn', 4)}
               >
                 Durable, stunning, and seamless floors that enhance your business image and last for years
               </p>
