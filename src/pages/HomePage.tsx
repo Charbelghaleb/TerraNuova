@@ -390,7 +390,7 @@ function HomePage() {
                 id="solution-title-1"
                 style={getScrollAnimationStyle('solution-title-1', 'slideUp', 3)}
               >
-                Transform Your Space with
+                Discover
               </h3>
               <h3 
                 className="text-2xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 scroll-reveal"
@@ -398,7 +398,7 @@ function HomePage() {
                 style={getScrollAnimationStyle('solution-title-2', 'slideUp', 4)}
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066CC] to-red-600">
-                  Professional Epoxy Coating
+                  The Art Of Professional Epoxy Coating
                 </span>
               </h3>
               <p 
