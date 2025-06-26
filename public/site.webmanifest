@@ -1,7 +1,11 @@
 {
-    "name": "Terra Nuova",
+    "name": "Terra Nuova - Concrete Floor Coatings",
     "short_name": "Terra Nuova",
-    "description": "Professional epoxy floor coatings in NYC",
+    "description": "Professional epoxy floor coatings in NYC by Terra Nuova",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0066CC",
     "icons": [
         {
             "src": "/favicon-16x16.png",
@@ -14,13 +18,19 @@
             "type": "image/png"
         },
         {
+            "src": "/favicon-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
             "src": "/apple-touch-icon.png",
             "sizes": "180x180",
             "type": "image/png"
         }
-    ],
-    "theme_color": "#0066CC",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "start_url": "/"
+    ]
 }

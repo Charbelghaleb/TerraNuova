@@ -170,13 +170,20 @@ function HomePage() {
         <title>Terra Nuova | Concrete Floor Coatings in NYC</title>
         <meta name="description" content="Professional epoxy floor coatings in NYC by Terra Nuova. Durable, stylish floors for garages, basements, shops & more. Free estimates available." />
         
+        {/* Enhanced favicon meta tags for Google */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="canonical" href="https://terranuova.us/" />
+        
         {/* LocalBusiness Schema Markup */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Terra Nuova",
-            "image": "https://terranuova.us/images/logo/terra-nuova-logo.png",
+            "image": "https://terranuova.us/favicon-192x192.png",
+            "logo": "https://terranuova.us/favicon-192x192.png",
             "url": "https://terranuova.us",
             "telephone": "+17182004133",
             "address": {
