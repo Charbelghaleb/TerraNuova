@@ -4,12 +4,10 @@ Allow: /
 # Sitemap
 Sitemap: https://terranuova.us/sitemap.xml
 
-# Favicon files - explicitly allow for Google crawling
-Allow: /favicon.ico
-Allow: /favicon.svg
-Allow: /favicon-16x16.png
-Allow: /favicon-32x32.png
-Allow: /favicon-48x48.png
-Allow: /favicon-192x192.png
-Allow: /apple-touch-icon.png
+# Logo and favicon files - explicitly allow for Google crawling
+Allow: /images/logo/terra-nuova-logo.png
 Allow: /site.webmanifest
+
+# Disallow admin areas if any
+Disallow: /admin/
+Disallow: /private/
