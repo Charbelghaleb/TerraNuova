@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://terranuova.us/sitemap.xml
+
+# Allow favicon
+Allow: /favicon.ico
+Allow: /favicon.svg
+Allow: /favicon-32x32.png
+Allow: /favicon-16x16.png
+Allow: /apple-touch-icon.png

@@ -1,0 +1,21 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Terra Nuova Logo Favicon - Optimized for small sizes -->
+  <rect width="48" height="48" rx="8" fill="#0066CC"/>
+  
+  <!-- Simplified "TN" monogram with high contrast -->
+  <g fill="white">
+    <!-- T -->
+    <rect x="8" y="12" width="12" height="3"/>
+    <rect x="12.5" y="12" width="3" height="20"/>
+    
+    <!-- N -->
+    <rect x="26" y="12" width="3" height="20"/>
+    <rect x="37" y="12" width="3" height="20"/>
+    <polygon points="29,12 29,15 34,24 34,21"/>
+    <rect x="29" y="12" width="8" height="3" transform="rotate(26.57 33 13.5)"/>
+  </g>
+  
+  <!-- Subtle floor coating texture effect -->
+  <rect x="0" y="40" width="48" height="8" rx="0" fill="#DC2626" opacity="0.8"/>
+  <rect x="0" y="44" width="48" height="4" rx="0" fill="#EF4444" opacity="0.6"/>
+</svg>
