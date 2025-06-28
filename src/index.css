@@ -17,57 +17,26 @@
     line-height: 1.5; /* Improved line height for readability */
   }
 
-  /* Enhanced mobile-first design principles */
+  /* Ensure proper touch targets on mobile */
   @media (max-width: 768px) {
-    /* Ensure proper touch targets on mobile */
     button, a, input, select, textarea {
-      min-height: 48px; /* Increased from 44px for better accessibility */
-      min-width: 48px;
+      min-height: 44px;
+      min-width: 44px;
     }
     
-    /* Enhanced mobile typography with better hierarchy */
-    h1 {
-      font-size: 2rem; /* 32px */
-      line-height: 1.1;
-      font-weight: 900;
-      letter-spacing: -0.025em;
-    }
-    
-    h2 {
-      font-size: 1.75rem; /* 28px */
+    /* Improved mobile typography */
+    h1, h2, h3, h4, h5, h6 {
       line-height: 1.2;
-      font-weight: 800;
-    }
-    
-    h3 {
-      font-size: 1.5rem; /* 24px */
-      line-height: 1.3;
-      font-weight: 700;
-    }
-    
-    h4, h5, h6 {
-      font-size: 1.25rem; /* 20px */
-      line-height: 1.4;
-      font-weight: 600;
     }
     
     p, li, span {
-      font-size: 1rem; /* 16px */
-      line-height: 1.6;
+      line-height: 1.5;
     }
     
-    /* Enhanced mobile spacing system */
-    .mobile-section-padding {
-      padding: 3rem 1rem; /* 48px top/bottom, 16px sides */
-    }
-    
-    .mobile-container-padding {
-      padding-left: 1rem; /* 16px */
-      padding-right: 1rem; /* 16px */
-    }
-    
-    .mobile-element-spacing {
-      margin-bottom: 1.5rem; /* 24px */
+    /* Better mobile spacing */
+    .mobile-spacing {
+      padding-left: 16px;
+      padding-right: 16px;
     }
     
     /* Prevent horizontal scrolling */
@@ -78,131 +47,16 @@
     * {
       max-width: 100%;
     }
-    
-    /* Enhanced mobile form elements */
-    input, textarea, select {
-      font-size: 16px; /* Prevent zoom on iOS */
-      padding: 0.875rem 1rem; /* 14px 16px */
-      border-radius: 0.5rem;
-      border: 2px solid #e5e7eb;
-      transition: all 0.2s ease;
-    }
-    
-    input:focus, textarea:focus, select:focus {
-      border-color: #0066CC;
-      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
-      outline: none;
-    }
-    
-    /* Enhanced mobile buttons */
-    .mobile-button-primary {
-      min-height: 48px;
-      padding: 0.875rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 0.75rem;
-      transition: all 0.2s ease;
-      touch-action: manipulation;
-    }
-    
-    .mobile-button-secondary {
-      min-height: 44px;
-      padding: 0.75rem 1.25rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border-radius: 0.5rem;
-      transition: all 0.2s ease;
-      touch-action: manipulation;
-    }
-    
-    /* Enhanced mobile navigation */
-    .mobile-nav-item {
-      padding: 1rem 1.5rem;
-      min-height: 48px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      display: flex;
-      align-items: center;
-    }
-    
-    /* Mobile-optimized cards */
-    .mobile-card {
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      border-radius: 1rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      background: white;
-    }
-    
-    /* Enhanced mobile grid system */
-    .mobile-grid-1 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    
-    .mobile-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-    }
-    
-    /* Mobile-first image optimization */
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-    }
-    
-    /* Enhanced mobile modal */
-    .mobile-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 50;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(8px);
-    }
-    
-    .mobile-modal-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: white;
-      border-radius: 1rem 1rem 0 0;
-      padding: 1.5rem;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-  }
-
-  /* Enhanced tablet breakpoint (768px - 1024px) */
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .tablet-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    
-    .tablet-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
   }
 }
 
 @layer utilities {
-  /* Enhanced mobile-first animations */
-  .animate-fade-in-mobile {
-    animation: fadeInMobile 0.6s ease-out;
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out;
   }
   
-  .animate-slide-up-mobile {
-    animation: slideUpMobile 0.5s ease-out;
-  }
-  
-  .animate-scale-in-mobile {
-    animation: scaleInMobile 0.4s ease-out;
+  .animate-slide-up-delay {
+    animation: slideUp 0.8s ease-out 0.3s both;
   }
   
   .animate-float {
@@ -217,20 +71,20 @@
     animation: pulseGlow 2s ease-in-out infinite;
   }
 
-  /* Enhanced scroll bounce animation */
+  /* Animated Scroll Bounce - Logo Movement */
   .animate-scroll-bounce {
     animation: scrollBounce 2s ease-in-out infinite;
   }
 
-  /* ENHANCED GEOMETRIC BACKGROUND - Mobile Optimized */
+  /* INSPIRED GEOMETRIC BACKGROUND - High Performance */
   .geometric-inspired-background {
     pointer-events: none;
     overflow: hidden;
-    opacity: 0.8; /* Slightly reduced for mobile readability */
+    opacity: 1;
     z-index: 0;
   }
 
-  /* Optimized crystalline layers for mobile performance */
+  /* Crystalline Polygonal Shapes - Inspired by the image */
   .crystalline-layer-1 {
     position: absolute;
     top: 0;
@@ -238,11 +92,17 @@
     width: 100%;
     height: 100%;
     background: 
-      radial-gradient(ellipse at 25% 25%, rgba(229, 231, 235, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 75% 30%, rgba(156, 163, 175, 0.10) 0%, transparent 55%),
-      radial-gradient(ellipse at 30% 75%, rgba(209, 213, 219, 0.14) 0%, transparent 60%);
-    background-size: 200px 150px, 180px 120px, 220px 160px;
-    animation: crystallineFloat1 20s linear infinite;
+      /* Large crystalline shapes */
+      polygon(20% 10%, 40% 5%, 35% 25%, 15% 30%) rgba(229, 231, 235, 0.15),
+      polygon(60% 15%, 80% 10%, 85% 35%, 65% 40%) rgba(156, 163, 175, 0.12),
+      polygon(10% 60%, 30% 55%, 25% 80%, 5% 85%) rgba(209, 213, 219, 0.18),
+      polygon(70% 65%, 90% 60%, 95% 85%, 75% 90%) rgba(156, 163, 175, 0.14);
+    clip-path: 
+      polygon(20% 10%, 40% 5%, 35% 25%, 15% 30%),
+      polygon(60% 15%, 80% 10%, 85% 35%, 65% 40%),
+      polygon(10% 60%, 30% 55%, 25% 80%, 5% 85%),
+      polygon(70% 65%, 90% 60%, 95% 85%, 75% 90%);
+    animation: crystallineFloat1 25s linear infinite;
     will-change: transform;
     transform: translateZ(0);
   }
@@ -254,11 +114,29 @@
     width: 100%;
     height: 100%;
     background: 
-      radial-gradient(circle at 20% 20%, rgba(229, 231, 235, 0.08) 0%, transparent 40%),
-      radial-gradient(circle at 80% 25%, rgba(156, 163, 175, 0.06) 0%, transparent 45%),
-      radial-gradient(circle at 25% 80%, rgba(209, 213, 219, 0.10) 0%, transparent 50%);
-    background-size: 150px 150px, 130px 130px, 170px 170px;
-    animation: crystallineFloat2 25s linear infinite reverse;
+      /* Medium crystalline fragments */
+      radial-gradient(ellipse at 25% 25%, 
+        rgba(229, 231, 235, 0.2) 0%, 
+        rgba(229, 231, 235, 0.08) 30%, 
+        transparent 60%
+      ),
+      radial-gradient(ellipse at 75% 30%, 
+        rgba(156, 163, 175, 0.15) 0%, 
+        rgba(156, 163, 175, 0.06) 35%, 
+        transparent 65%
+      ),
+      radial-gradient(ellipse at 30% 75%, 
+        rgba(209, 213, 219, 0.18) 0%, 
+        rgba(209, 213, 219, 0.07) 40%, 
+        transparent 70%
+      ),
+      radial-gradient(ellipse at 80% 80%, 
+        rgba(156, 163, 175, 0.12) 0%, 
+        rgba(156, 163, 175, 0.05) 45%, 
+        transparent 75%
+      );
+    background-size: 300px 200px, 250px 180px, 280px 220px, 200px 160px;
+    animation: crystallineFloat2 30s linear infinite reverse;
     will-change: transform;
     transform: translateZ(0);
   }
@@ -270,15 +148,35 @@
     width: 100%;
     height: 100%;
     background: 
-      linear-gradient(45deg, transparent 45%, rgba(229, 231, 235, 0.06) 50%, transparent 55%),
-      linear-gradient(-30deg, transparent 40%, rgba(209, 213, 219, 0.08) 45%, transparent 50%);
-    background-size: 100px 100px, 120px 80px;
-    animation: crystallineFloat3 30s linear infinite;
+      /* Small scattered fragments */
+      linear-gradient(45deg, 
+        transparent 40%, 
+        rgba(229, 231, 235, 0.1) 45%, 
+        rgba(156, 163, 175, 0.08) 50%, 
+        rgba(229, 231, 235, 0.1) 55%, 
+        transparent 60%
+      ),
+      linear-gradient(-30deg, 
+        transparent 35%, 
+        rgba(209, 213, 219, 0.12) 40%, 
+        rgba(156, 163, 175, 0.06) 45%, 
+        rgba(209, 213, 219, 0.12) 50%, 
+        transparent 55%
+      ),
+      linear-gradient(120deg, 
+        transparent 45%, 
+        rgba(156, 163, 175, 0.09) 48%, 
+        rgba(229, 231, 235, 0.07) 52%, 
+        transparent 55%
+      );
+    background-size: 150px 150px, 180px 120px, 200px 140px;
+    animation: crystallineFloat3 35s linear infinite;
     will-change: transform;
     transform: translateZ(0);
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
+  /* Depth particles - like floating crystal dust */
   .crystalline-layer-4 {
     position: absolute;
     top: 0;
@@ -286,20 +184,23 @@
     width: 100%;
     height: 100%;
     background: 
-      radial-gradient(circle at 15% 20%, rgba(156, 163, 175, 0.04) 1px, transparent 2px),
-      radial-gradient(circle at 85% 25%, rgba(209, 213, 219, 0.03) 1px, transparent 2px),
-      radial-gradient(circle at 25% 70%, rgba(229, 231, 235, 0.04) 1px, transparent 2px);
-    background-size: 60px 60px, 80px 70px, 50px 65px;
-    animation: crystallineFloat4 35s ease-in-out infinite;
+      /* Tiny floating particles */
+      radial-gradient(circle at 15% 20%, rgba(156, 163, 175, 0.08) 1px, transparent 2px),
+      radial-gradient(circle at 85% 25%, rgba(209, 213, 219, 0.06) 1px, transparent 2px),
+      radial-gradient(circle at 25% 70%, rgba(229, 231, 235, 0.07) 1px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(156, 163, 175, 0.05) 1px, transparent 2px),
+      radial-gradient(circle at 45% 45%, rgba(209, 213, 219, 0.04) 1px, transparent 2px),
+      radial-gradient(circle at 65% 15%, rgba(229, 231, 235, 0.06) 1px, transparent 2px);
+    background-size: 80px 80px, 100px 90px, 70px 85px, 90px 75px, 110px 95px, 85px 70px;
+    animation: crystallineFloat4 40s ease-in-out infinite;
     will-change: transform;
     transform: translateZ(0);
-    opacity: 0.4;
+    opacity: 0.5;
   }
   
-  /* Enhanced scroll reveal system */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     transition: none;
   }
   
@@ -309,100 +210,201 @@
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  /* Enhanced mobile typography styles */
-  .hero-text-mobile {
+  /* Enhanced Hero Typography Styles */
+  .hero-text-enhanced {
     position: relative;
     text-shadow: 
       0 2px 4px rgba(0, 0, 0, 0.1),
-      0 4px 8px rgba(0, 102, 204, 0.1);
+      0 4px 8px rgba(0, 102, 204, 0.15),
+      0 8px 16px rgba(0, 102, 204, 0.1);
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
   }
 
-  .hero-text-gradient-mobile {
-    background: linear-gradient(135deg, #0066CC 0%, #DC2626 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease-in-out infinite;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .hero-text-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 102, 204, 0.03) 0%,
+      rgba(220, 38, 38, 0.02) 50%,
+      rgba(0, 102, 204, 0.03) 100%
+    );
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  /* Enhanced mobile button styles */
-  .premium-button-mobile {
+  .hero-text-enhanced:hover::before {
+    opacity: 1;
+  }
+
+  .hero-text-gradient {
+    position: relative;
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+    text-shadow: 
+      0 2px 4px rgba(220, 38, 38, 0.2),
+      0 4px 8px rgba(220, 38, 38, 0.15),
+      0 8px 16px rgba(220, 38, 38, 0.1);
+  }
+
+  .hero-text-container {
+    position: relative;
+  }
+
+  .hero-text-container::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(
+      45deg,
+      rgba(0, 102, 204, 0.05),
+      rgba(220, 38, 38, 0.05),
+      rgba(0, 102, 204, 0.05)
+    );
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .hero-text-container:hover::after {
+    opacity: 1;
+  }
+
+  /* Enhanced scroll reveal animations */
+  .scroll-reveal-fade {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .scroll-reveal-slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .scroll-reveal-slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .scroll-reveal-slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .scroll-reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .scroll-reveal-rotate {
+    opacity: 0;
+    transform: rotate(-5deg) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Visible states */
+  .scroll-reveal-fade.visible,
+  .scroll-reveal-slide-up.visible,
+  .scroll-reveal-slide-left.visible,
+  .scroll-reveal-slide-right.visible,
+  .scroll-reveal-scale.visible,
+  .scroll-reveal-rotate.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+  }
+
+  /* Staggered animation delays */
+  .scroll-reveal:nth-child(1) { transition-delay: 0ms; }
+  .scroll-reveal:nth-child(2) { transition-delay: 80ms; }
+  .scroll-reveal:nth-child(3) { transition-delay: 160ms; }
+  .scroll-reveal:nth-child(4) { transition-delay: 240ms; }
+  .scroll-reveal:nth-child(5) { transition-delay: 320ms; }
+  .scroll-reveal:nth-child(6) { transition-delay: 400ms; }
+
+  /* Bold typography utilities */
+  .font-black {
+    font-weight: 900;
+  }
+
+  .tracking-tight {
+    letter-spacing: -0.025em;
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(0, 102, 204, 0.3);
+  }
+
+  /* Premium Button Hover Animation */
+  .premium-button-hover {
     position: relative;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
-    touch-action: manipulation;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
   }
 
-  .premium-button-mobile::before {
+  .premium-button-hover::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
   }
 
-  .premium-button-mobile:active {
-    transform: scale(0.98);
-    transition: all 0.1s ease;
+  .premium-button-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 8px 25px rgba(0, 102, 204, 0.3),
+      0 4px 10px rgba(0, 102, 204, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #0066CC 0%, #DC2626 100%);
   }
 
-  .premium-button-mobile:active::before {
+  .premium-button-hover:hover::before {
     left: 100%;
   }
 
-  /* Enhanced mobile card hover effects */
-  .mobile-card-hover {
-    transition: all 0.3s ease;
-    transform: translateZ(0);
+  .premium-button-hover:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: all 0.1s ease;
   }
 
-  .mobile-card-hover:active {
-    transform: scale(0.98) translateZ(0);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+  /* Subtle glow effect on hover */
+  .premium-button-hover:hover {
+    filter: brightness(1.05);
   }
 
-  /* Mobile-optimized focus states */
-  .mobile-focus:focus {
-    outline: 3px solid rgba(0, 102, 204, 0.5);
-    outline-offset: 2px;
-  }
-
-  /* Enhanced mobile navigation */
-  .mobile-nav-backdrop {
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.95);
-  }
-
-  /* Mobile-first spacing utilities */
-  .mobile-spacing-xs { margin-bottom: 0.5rem; }
-  .mobile-spacing-sm { margin-bottom: 1rem; }
-  .mobile-spacing-md { margin-bottom: 1.5rem; }
-  .mobile-spacing-lg { margin-bottom: 2rem; }
-  .mobile-spacing-xl { margin-bottom: 3rem; }
-
-  /* Mobile-optimized text sizes */
-  .mobile-text-xs { font-size: 0.75rem; line-height: 1.5; }
-  .mobile-text-sm { font-size: 0.875rem; line-height: 1.5; }
-  .mobile-text-base { font-size: 1rem; line-height: 1.6; }
-  .mobile-text-lg { font-size: 1.125rem; line-height: 1.6; }
-  .mobile-text-xl { font-size: 1.25rem; line-height: 1.5; }
-  .mobile-text-2xl { font-size: 1.5rem; line-height: 1.4; }
-  .mobile-text-3xl { font-size: 1.875rem; line-height: 1.3; }
-  .mobile-text-4xl { font-size: 2.25rem; line-height: 1.2; }
-
-  /* Performance optimizations for mobile */
+  /* Performance optimizations */
   .scroll-reveal,
   .animate-float,
   .animate-pulse-glow,
   .animate-scroll-bounce,
-  .premium-button-mobile,
-  .mobile-card-hover,
+  .premium-button-hover,
   .crystalline-layer-1,
   .crystalline-layer-2,
   .crystalline-layer-3,
@@ -414,65 +416,31 @@
 
   /* Mobile-specific improvements */
   @media (max-width: 768px) {
-    /* Better mobile touch feedback */
-    .mobile-touch-feedback {
-      -webkit-tap-highlight-color: rgba(0, 102, 204, 0.1);
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      user-select: none;
+    /* Ensure proper spacing on mobile */
+    .mobile-padding {
+      padding-left: 16px;
+      padding-right: 16px;
     }
     
-    /* Enhanced mobile scrolling */
-    .mobile-scroll-smooth {
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
+    /* Better mobile navigation */
+    .mobile-nav-item {
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
     
-    /* Mobile-optimized shadows */
-    .mobile-shadow-sm { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
-    .mobile-shadow-md { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
-    .mobile-shadow-lg { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
-    
-    /* Mobile-first grid system */
-    .mobile-auto-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
+    /* Improved mobile buttons */
+    .mobile-button {
+      min-height: 44px;
+      padding: 12px 24px;
+      font-size: 16px;
     }
-  }
-}
-
-/* Enhanced mobile-first keyframes */
-@keyframes fadeInMobile {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUpMobile {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleInMobile {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+    
+    /* Better mobile form elements */
+    .mobile-input {
+      min-height: 44px;
+      font-size: 16px; /* Prevents zoom on iOS */
+      padding: 12px 16px;
+    }
   }
 }
 
@@ -525,19 +493,19 @@
   }
 }
 
-/* Enhanced mobile bounce animation */
+/* Smooth Logo Bounce Animation - 2 second cycle, 20px travel */
 @keyframes scrollBounce {
   0%, 100% {
     transform: translateY(0px);
     opacity: 0.8;
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-20px);
     opacity: 1;
   }
 }
 
-/* Gradient animation for hero text */
+/* Gradient Animation for Hero Text */
 @keyframes gradientShift {
   0%, 100% {
     background-position: 0% 50%;
@@ -547,22 +515,22 @@
   }
 }
 
-/* Enhanced mobile crystalline animations */
+/* CRYSTALLINE GEOMETRIC ANIMATIONS - Inspired by the image */
 @keyframes crystallineFloat1 {
   0% {
     transform: translateX(0) translateY(0) rotate(0deg) scale(1);
   }
   25% {
-    transform: translateX(-30px) translateY(-20px) rotate(10deg) scale(1.02);
+    transform: translateX(-50px) translateY(-30px) rotate(15deg) scale(1.05);
   }
   50% {
-    transform: translateX(-60px) translateY(-40px) rotate(20deg) scale(0.98);
+    transform: translateX(-100px) translateY(-60px) rotate(30deg) scale(0.95);
   }
   75% {
-    transform: translateX(-90px) translateY(-20px) rotate(30deg) scale(1.01);
+    transform: translateX(-150px) translateY(-30px) rotate(45deg) scale(1.02);
   }
   100% {
-    transform: translateX(-120px) translateY(0) rotate(40deg) scale(1);
+    transform: translateX(-200px) translateY(0) rotate(60deg) scale(1);
   }
 }
 
@@ -571,19 +539,19 @@
     transform: translateX(0) translateY(0) scale(1) rotate(0deg);
   }
   20% {
-    transform: translateX(-25px) translateY(15px) scale(1.04) rotate(8deg);
+    transform: translateX(-40px) translateY(20px) scale(1.08) rotate(12deg);
   }
   40% {
-    transform: translateX(-50px) translateY(-10px) scale(0.96) rotate(16deg);
+    transform: translateX(-80px) translateY(-15px) scale(0.92) rotate(24deg);
   }
   60% {
-    transform: translateX(-75px) translateY(20px) scale(1.02) rotate(24deg);
+    transform: translateX(-120px) translateY(25px) scale(1.04) rotate(36deg);
   }
   80% {
-    transform: translateX(-100px) translateY(-5px) scale(0.98) rotate(32deg);
+    transform: translateX(-160px) translateY(-10px) scale(0.96) rotate(48deg);
   }
   100% {
-    transform: translateX(-125px) translateY(0) scale(1) rotate(40deg);
+    transform: translateX(-200px) translateY(0) scale(1) rotate(60deg);
   }
 }
 
@@ -592,22 +560,22 @@
     transform: translateX(0) translateY(0) rotate(0deg) scale(1);
   }
   16.66% {
-    transform: translateX(-20px) translateY(-10px) rotate(6deg) scale(1.01);
+    transform: translateX(-30px) translateY(-15px) rotate(10deg) scale(1.03);
   }
   33.33% {
-    transform: translateX(-40px) translateY(-20px) rotate(12deg) scale(0.99);
+    transform: translateX(-60px) translateY(-30px) rotate(20deg) scale(0.97);
   }
   50% {
-    transform: translateX(-60px) translateY(-10px) rotate(18deg) scale(1.01);
+    transform: translateX(-90px) translateY(-15px) rotate(30deg) scale(1.01);
   }
   66.66% {
-    transform: translateX(-80px) translateY(0px) rotate(24deg) scale(0.99);
+    transform: translateX(-120px) translateY(0px) rotate(40deg) scale(0.99);
   }
   83.33% {
-    transform: translateX(-100px) translateY(10px) rotate(30deg) scale(1.01);
+    transform: translateX(-150px) translateY(15px) rotate(50deg) scale(1.02);
   }
   100% {
-    transform: translateX(-120px) translateY(0) rotate(36deg) scale(1);
+    transform: translateX(-180px) translateY(0) rotate(60deg) scale(1);
   }
 }
 
@@ -616,25 +584,25 @@
     transform: translateX(0) translateY(0) scale(1) rotate(0deg);
   }
   12.5% {
-    transform: translateX(-15px) translateY(-8px) scale(1.01) rotate(5deg);
+    transform: translateX(-20px) translateY(-10px) scale(1.02) rotate(7.5deg);
   }
   25% {
-    transform: translateX(-30px) translateY(-15px) scale(0.99) rotate(10deg);
+    transform: translateX(-40px) translateY(-20px) scale(0.98) rotate(15deg);
   }
   37.5% {
-    transform: translateX(-45px) translateY(-12px) scale(1.01) rotate(15deg);
+    transform: translateX(-60px) translateY(-15px) scale(1.01) rotate(22.5deg);
   }
   50% {
-    transform: translateX(-60px) translateY(-18px) scale(0.99) rotate(20deg);
+    transform: translateX(-80px) translateY(-25px) scale(0.99) rotate(30deg);
   }
   62.5% {
-    transform: translateX(-75px) translateY(-12px) scale(1.01) rotate(25deg);
+    transform: translateX(-100px) translateY(-15px) scale(1.01) rotate(37.5deg);
   }
   75% {
-    transform: translateX(-90px) translateY(-8px) scale(0.99) rotate(30deg);
+    transform: translateX(-120px) translateY(-10px) scale(0.98) rotate(45deg);
   }
   87.5% {
-    transform: translateX(-105px) translateY(-4px) scale(1.01) rotate(35deg);
+    transform: translateX(-140px) translateY(-5px) scale(1.01) rotate(52.5deg);
   }
 }
 
@@ -647,9 +615,9 @@
   }
 }
 
-/* Enhanced mobile scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 4px; /* Thinner on mobile */
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -658,41 +626,40 @@
 
 ::-webkit-scrollbar-thumb {
   background: #0066CC;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #0052a3;
 }
 
-/* Enhanced mobile transitions */
+/* Smooth transitions for interactive elements only */
 button, input, textarea, a {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Enhanced mobile button hover effects */
-button:active {
-  transform: scale(0.98);
-  box-shadow: 0 8px 16px -4px rgba(0, 102, 204, 0.2);
+/* Button hover effects */
+button:hover {
+  box-shadow: 0 20px 40px -12px rgba(0, 102, 204, 0.25);
 }
 
-/* Enhanced mobile card hover effects */
-.hover\:shadow-xl:active {
-  box-shadow: 0 8px 16px -4px rgba(0, 102, 204, 0.1), 0 4px 6px -2px rgba(0, 102, 204, 0.04);
+/* Enhanced card hover effects */
+.hover\:shadow-xl:hover {
+  box-shadow: 0 15px 20px -5px rgba(0, 102, 204, 0.1), 0 8px 8px -5px rgba(0, 102, 204, 0.04);
 }
 
-/* Enhanced mobile glass morphism */
+/* Glass morphism effects */
 .backdrop-blur-sm {
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
 }
 
 .backdrop-blur-md {
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
 }
 
-/* Enhanced mobile focus states */
+/* Focus states */
 input:focus, textarea:focus {
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
 }
 
 /* Reduce motion for accessibility */
@@ -702,8 +669,8 @@ input:focus, textarea:focus {
   .animate-pulse-glow,
   .animate-fade-in,
   .animate-scroll-bounce,
-  .premium-button-mobile,
-  .hero-text-gradient-mobile,
+  .premium-button-hover,
+  .hero-text-gradient,
   .crystalline-layer-1,
   .crystalline-layer-2,
   .crystalline-layer-3,
@@ -717,7 +684,7 @@ input:focus, textarea:focus {
     transform: none;
   }
   
-  .premium-button-mobile:active {
+  .premium-button-hover:hover {
     transform: none;
   }
   
@@ -727,13 +694,12 @@ input:focus, textarea:focus {
   }
 }
 
-/* Enhanced GPU acceleration for mobile performance */
+/* GPU acceleration for smooth performance */
 .scroll-reveal,
 .animate-float,
 .animate-pulse-glow,
 .animate-scroll-bounce,
-.premium-button-mobile,
-.mobile-card-hover,
+.premium-button-hover,
 .crystalline-layer-1,
 .crystalline-layer-2,
 .crystalline-layer-3,

@@ -112,7 +112,7 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
   ];
 
   useEffect(() => {
-    // Enhanced mobile-optimized Intersection Observer
+    // Intersection Observer for scroll-triggered animations
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -123,7 +123,7 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
       },
       {
         threshold: 0.1,
-        rootMargin: '30px 0px -30px 0px' // Reduced for mobile
+        rootMargin: '50px 0px -50px 0px'
       }
     );
 
@@ -143,12 +143,12 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
 
   const getScrollAnimationStyle = (elementId: string, delay: number = 0) => {
     const isVisible = visibleElements.has(elementId);
-    const baseDelay = delay * 80; // Reduced for mobile
+    const baseDelay = delay * 100;
     
     if (!isVisible) {
       return {
         opacity: 0,
-        transform: 'translateY(15px) scale(0.98)', // Reduced for mobile
+        transform: 'translateY(20px) scale(0.95)',
         transition: 'none'
       };
     }
@@ -156,7 +156,7 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
     return {
       opacity: 1,
       transform: 'translateY(0) scale(1)',
-      transition: `all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${baseDelay}ms` // Faster for mobile
+      transition: `all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${baseDelay}ms`
     };
   };
 
@@ -195,24 +195,24 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 mobile-scroll-smooth">
-      {/* Enhanced Mobile Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 mobile-nav-backdrop border-b border-gray-100">
-        <div className="flex justify-between items-center max-w-7xl mx-auto mobile-container-padding py-4 md:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 backdrop-blur-md bg-white/90 border-b border-gray-100">
+        <div className="flex justify-between items-center max-w-7xl mx-auto">
           <Link
             to="/"
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity mobile-touch-feedback"
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
             <img 
               src="/images/logo/terra-nuova-logo.png" 
               alt="TERRA NUOVA Logo"
               className="w-8 h-8 object-contain"
             />
-            <h1 className="mobile-text-lg md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-[#0066CC] tracking-wider">TERRA NUOVA</h1>
           </Link>
           <Link
             to="/"
-            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors min-h-[48px] px-3 mobile-touch-feedback mobile-focus"
+            className="flex items-center space-x-2 text-gray-600 hover:text-[#0066CC] transition-colors min-h-[44px] px-3"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-medium">Back to Home</span>
@@ -220,45 +220,45 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
         </div>
       </nav>
 
-      {/* Enhanced Mobile Hero Section */}
-      <section className="pt-24 md:pt-32 pb-8 md:pb-12 mobile-container-padding">
+      {/* Hero Section */}
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 md:px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-4 mobile-element-spacing">
+          <div className="flex items-center justify-center space-x-4 mb-4 md:mb-6">
             <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-[#0066CC] to-red-600 rounded-full flex items-center justify-center">
               <Palette className="w-6 h-6 md:w-8 md:h-8 text-white" />
             </div>
           </div>
-          <h1 className="mobile-text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mobile-spacing-lg">Colors & Finishes</h1>
-          <p className="mobile-text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#0066CC] mb-4 md:mb-6">Colors & Finishes</h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Explore our comprehensive collection of premium floor coating colors and finishes. 
             From natural earth tones to vibrant metallics, find the perfect color to transform your space.
           </p>
         </div>
       </section>
 
-      {/* Enhanced Mobile Controls Section */}
-      <section className="pb-6 md:pb-8 mobile-container-padding">
+      {/* Controls Section */}
+      <section className="pb-6 md:pb-8 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:gap-6 items-center justify-between">
-            {/* Enhanced Mobile Search Bar */}
-            <div className="relative w-full max-w-md">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 items-center justify-between">
+            {/* Search Bar */}
+            <div className="relative flex-1 max-w-md w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search colors..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 mobile-button-primary border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] transition-colors mobile-touch-feedback mobile-focus"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] transition-colors text-base min-h-[44px]"
               />
             </div>
 
-            {/* Enhanced Mobile View Mode Toggle */}
+            {/* View Mode Toggle */}
             <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded-md transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center mobile-touch-feedback mobile-focus ${
+                className={`p-2 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   viewMode === 'grid' 
-                    ? 'bg-white text-[#0066CC] mobile-shadow-sm' 
+                    ? 'bg-white text-[#0066CC] shadow-sm' 
                     : 'text-gray-600 hover:text-[#0066CC]'
                 }`}
               >
@@ -266,9 +266,9 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded-md transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center mobile-touch-feedback mobile-focus ${
+                className={`p-2 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   viewMode === 'list' 
-                    ? 'bg-white text-[#0066CC] mobile-shadow-sm' 
+                    ? 'bg-white text-[#0066CC] shadow-sm' 
                     : 'text-gray-600 hover:text-[#0066CC]'
                 }`}
               >
@@ -279,17 +279,17 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
         </div>
       </section>
 
-      {/* Enhanced Mobile Category Tabs */}
-      <section className="pb-6 md:pb-8 mobile-container-padding">
+      {/* Category Tabs */}
+      <section className="pb-6 md:pb-8 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 justify-center">
             {colorCategories.map((category) => (
               <button
                 key={category.name}
                 onClick={() => setSelectedCategory(category.name)}
-                className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 mobile-text-sm md:text-base min-h-[48px] mobile-touch-feedback mobile-focus ${
+                className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base min-h-[44px] ${
                   selectedCategory === category.name
-                    ? 'bg-gradient-to-r from-[#0066CC] to-red-600 text-white mobile-shadow-lg transform scale-105'
+                    ? 'bg-gradient-to-r from-[#0066CC] to-red-600 text-white shadow-lg transform scale-105'
                     : 'bg-white text-gray-600 hover:text-[#0066CC] hover:bg-gray-50 border border-gray-200'
                 }`}
               >
@@ -300,36 +300,36 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
         </div>
       </section>
 
-      {/* Enhanced Mobile Color Swatches Grid */}
-      <section className="pb-16 md:pb-20 mobile-container-padding">
+      {/* Color Swatches Grid */}
+      <section className="pb-16 md:pb-20 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Enhanced Mobile Category Header */}
-          <div className="text-center mobile-spacing-lg">
-            <h2 className="mobile-text-2xl md:text-3xl font-bold text-[#0066CC] mobile-element-spacing">{selectedCategory} Collection</h2>
-            <p className="text-gray-600 mobile-text-base">
-              {filteredColors.length} color{filteredColors.length !== 1 ? 's' : ''} available • Tap any color for full-screen preview
+          {/* Category Header */}
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0066CC] mb-3 md:mb-4">{selectedCategory} Collection</h2>
+            <p className="text-gray-600 text-base">
+              {filteredColors.length} color{filteredColors.length !== 1 ? 's' : ''} available • Click any color for full-screen preview
             </p>
           </div>
 
-          {/* Enhanced Mobile Color Grid */}
+          {/* Color Grid */}
           {filteredColors.length > 0 ? (
-            <div className={`grid gap-3 md:gap-6 lg:gap-8 ${
+            <div className={`grid gap-4 md:gap-6 lg:gap-8 ${
               viewMode === 'grid' 
-                ? 'mobile-grid-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5' 
-                : 'mobile-grid-1 md:grid-cols-2 lg:grid-cols-3'
+                ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5' 
+                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
             }`}>
               {filteredColors.map((color, index) => (
                 <div
                   key={color.name}
-                  className={`group cursor-pointer scroll-reveal mobile-card-hover mobile-touch-feedback ${
-                    viewMode === 'list' ? 'flex items-center space-x-4 mobile-card mobile-shadow-sm hover:shadow-lg' : ''
+                  className={`group cursor-pointer scroll-reveal ${
+                    viewMode === 'list' ? 'flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-lg' : ''
                   }`}
                   id={`color-swatch-${index}`}
                   style={getScrollAnimationStyle(`color-swatch-${index}`, index)}
                   onClick={() => handleColorClick(color, index)}
                 >
-                  <div className={`relative overflow-hidden rounded-xl mobile-shadow-md group-hover:shadow-xl transition-all duration-300 ${
-                    viewMode === 'list' ? 'w-16 h-16 md:w-24 md:h-24 flex-shrink-0' : 'aspect-square'
+                  <div className={`relative overflow-hidden rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 ${
+                    viewMode === 'list' ? 'w-20 h-20 md:w-24 md:h-24 flex-shrink-0' : 'aspect-square'
                   }`}>
                     <img
                       src={color.imagePath}
@@ -339,22 +339,22 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    {/* Enhanced Mobile Hover Overlay */}
+                    {/* Hover Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-white/90 backdrop-blur-sm rounded-lg px-2 md:px-3 py-1">
-                        <span className="mobile-text-xs md:text-sm font-medium text-gray-900">View Full Screen</span>
+                        <span className="text-xs md:text-sm font-medium text-gray-900">View Full Screen</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className={viewMode === 'list' ? 'flex-1' : 'mt-2 md:mt-4 text-center'}>
+                  <div className={viewMode === 'list' ? 'flex-1' : 'mt-3 md:mt-4 text-center'}>
                     <h3 className={`font-semibold text-gray-900 group-hover:text-[#0066CC] transition-colors ${
-                      viewMode === 'list' ? 'mobile-text-base md:text-lg' : 'mobile-text-sm md:text-base'
+                      viewMode === 'list' ? 'text-base md:text-lg' : 'text-sm md:text-base'
                     }`}>
                       {color.name}
                     </h3>
                     {viewMode === 'list' && (
-                      <p className="text-gray-500 mobile-text-sm mt-1">{selectedCategory} Collection</p>
+                      <p className="text-gray-500 text-sm mt-1">{selectedCategory} Collection</p>
                     )}
                   </div>
                 </div>
@@ -362,26 +362,26 @@ const ColorsFinishes: React.FC<ColorsFinishesProps> = ({ onBack, onContactRedire
             </div>
           ) : (
             <div className="text-center py-12 md:py-16">
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mobile-element-spacing">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-6 h-6 md:w-8 md:h-8 text-gray-400" />
               </div>
-              <h3 className="mobile-text-lg md:text-xl font-semibold text-gray-900 mb-2">No colors found</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">No colors found</h3>
               <p className="text-gray-600">Try adjusting your search terms or select a different category.</p>
             </div>
           )}
         </div>
       </section>
 
-      {/* Enhanced Mobile CTA Section */}
-      <section className="mobile-section-padding bg-gradient-to-r from-[#0066CC] to-red-600">
-        <div className="max-w-4xl mx-auto text-center text-white mobile-container-padding">
-          <h2 className="mobile-text-3xl md:text-4xl font-black mobile-spacing-lg">Found Your Perfect Color?</h2>
-          <p className="mobile-text-lg md:text-xl mobile-spacing-lg opacity-90">
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-r from-[#0066CC] to-red-600">
+        <div className="max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-3xl md:text-4xl font-black mb-4 md:mb-6">Found Your Perfect Color?</h2>
+          <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90">
             Get a free estimate and see how your chosen color will transform your space.
           </p>
           <Link 
             to="/contact"
-            className="bg-white text-[#0066CC] font-bold mobile-button-primary rounded-full premium-button-mobile mobile-touch-feedback inline-block"
+            className="bg-white text-[#0066CC] font-bold py-3 md:py-4 px-6 md:px-8 rounded-full text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[44px] inline-block"
           >
             Get Free Estimate
           </Link>
